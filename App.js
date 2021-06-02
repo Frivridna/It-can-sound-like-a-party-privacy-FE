@@ -9,33 +9,35 @@ export const App = () => {
 
   //let audio = new Audio() // ta emot från backend på något sätt
 
-  let audio = new Audio(response)
+ 
 
-  const playAudio = (response) => {
-    audio.play(response)
-  }
+const playAudio = () => {
+  console.log(response)
+    let audio = new Audio(response)
+    audio.play()
+
+ }
   
-
-  useEffect(() => {
+ useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     //const socket = io.connect('http://localhost:4001') 
-    socket.on("FromAPI", data => {
+     socket.on("FromAPI", data => {
       console.log(data)
       setResponse(data)
       console.log(response)
       playAudio()
     });
-  }, [playAudio]);
+  }, []);
 
-
+  
   return (
     <>
     <p>
       {/* It's <time dateTime={response}>{response}</time> */}
       Test
     </p>
-    <button onClick={() => playAudio()}></button> 
-    </>
+    <button onClick={playAudio}>button</button> 
+    </> //
   );
 }
 
