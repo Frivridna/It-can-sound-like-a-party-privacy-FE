@@ -13,11 +13,11 @@ export const App = () => {
     audio.play(response)
   }
   
-
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
-    socket.on("FromAPI", data => {
-      setResponse(data)
+    socket.on("FromAPI", response => {
+      console.log(response)
+      setResponse(response)
       playAudio()
     });
   }, [playAudio, response]);
