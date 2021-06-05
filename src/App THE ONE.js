@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import socketIOClient from "socket.io-client"
-//const ENDPOINT = "http://192.168.1.145:4001" //127.0.0.1
-//const ENDPOINT = "http://http://172.25.145.136:4001"
+import io from 'socket.io-client' // new 6june
+//import socketIOClient from "socket.io-client"
+
 const ENDPOINT = "http://localhost:4001" // add to reusable folder 
-const socket = socketIOClient(ENDPOINT)
+
+//const socket = socketIOClient(ENDPOINT)
+const socket = io.connect(ENDPOINT)
 
 export const App = () => {
   const [response, setResponse] = useState("")
+
+  const playAudio = (response) => {
+    console.log('Play audio: ' + response)
+    if (response) {
+    let audio = new Audio(response)
+    audio.play(response)
+    }
+  }
   
   useEffect(() => {
-    const playAudio = (response) => {
-      console.log('Play audio: ' + response)
-      if (response) {
-      let audio = new Audio(response)
-      audio.play(response)
-      }
-    }
-
-    const socket = socketIOClient(ENDPOINT);
+    const socket = io.connect(ENDPOINT) // new 6june
     socket.on("FromAPI", response => {
       setResponse(response)
       console.log('From API: ', + response)
       playAudio(response)
     });
-  }, [response]);
+  }, [playAudio, response]);
 
   const sendSocketClick = () => {
     console.log('Sends a click')
     socket.emit('click', true)
   }
   
-
   return (
     <>
     <p>
