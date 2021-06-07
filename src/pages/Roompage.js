@@ -10,11 +10,15 @@ const Roompage = () => {
   const [room, setRoom] = useState("")
 
   useEffect(() => {
+    const test = 1
+    
     const message = room
     //const room = "turtles"
     const socket = socketIOClient(ENDPOINT);
     socket.emit("big-poppa", message, room);
     console.log(socket.id)
+  
+    socket.emit("create", test)
   }, []);
   
   
