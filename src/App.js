@@ -1,44 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import socketIOClient from "socket.io-client"
-//const ENDPOINT = "http://192.168.1.145:4001" //127.0.0.1
-//const ENDPOINT = "http://http://172.25.145.136:4001"
-const ENDPOINT = "http://localhost:4001" // add to reusable folder 
-const socket = socketIOClient(ENDPOINT)
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+// import socketIOClient from "socket.io-client"
+// const ENDPOINT = "http://localhost:4001" // add to reusable folder 
+// const socket = socketIOClient(ENDPOINT)
+
+import Roompage from './pages/Roompage'
+import Sessionpage from './pages/Sessionpage'
 
 export const App = () => {
-  const [response, setResponse] = useState("")
-  
-  useEffect(() => {
-    const playAudio = (response) => {
-      console.log('Play audio: ' + response)
-      if (response) {
-      let audio = new Audio(response)
-      audio.play(response)
-      }
-    }
 
-    const socket = socketIOClient(ENDPOINT);
-    socket.on("FromAPI", response => {
-      setResponse(response)
-      console.log('From API: ', + response)
-      playAudio(response)
-    });
-  }, [response]);
-
-  const sendSocketClick = () => {
-    console.log('Sends a click')
-    socket.emit('click', true)
-  }
-  
 
   return (
-    <>
-    <p>
-      Test
-    </p>
-    <button onClick={() => sendSocketClick()}>button</button> 
-    </>
-  );
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact >
+          <Roompage />
+        </Route>
+        <Route path="/session/:room" exact >
+          <Sessionpage />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 // old version ! 
