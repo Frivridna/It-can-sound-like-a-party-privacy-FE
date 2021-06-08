@@ -4,23 +4,22 @@ import socketIOClient from "socket.io-client"
 const ENDPOINT = "http://localhost:4001" // add to reusable folder 
 const socket = socketIOClient(ENDPOINT)
 
-const Roompage = () => {
+const Joinroom = () => {
   const [ourCond, setCondition] = useState("")
   // const [value, setValue] = useState("")
   const [room, setRoom] = useState("")
 
-  useEffect(() => {
+  /*useEffect(() => {
     const test = 1
     
     const message = room
     //const room = "turtles"
     const socket = socketIOClient(ENDPOINT);
+    socket.emit("create", test)
     socket.emit("big-poppa", message, room);
     console.log(socket.id)
-  
-    socket.emit("create", test)
   }, []);
-  
+  */
   
    /*useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
@@ -41,20 +40,20 @@ const Roompage = () => {
     setRoom(e.target.value)
   }
   
-  const onSubmit = (e) => {
+  /*const onSubmit = (e) => {
       e.preventDefault()
       socket.emit('join-room', room)
-  }
+  }*/
   
   return (
     <>
-    <p>
-      Test
-    </p>
+    <h3>
+      Join Group
+    </h3>
     <p>I am connected with {socket.id}</p>
-    <form onSubmit={onSubmit}>
+    <form>
       <label>
-        Group Name:
+        Search groupname:
           <input 
             type="text"
             onChange={e => setRoomName(e)}
@@ -64,9 +63,14 @@ const Roompage = () => {
       <Link to={`/session/${room}`}>
         <button type="submit">Submit group name</button>
       </Link>
+      <div>
+      <Link to={`/`}>
+        <button type="submit">Back</button>
+      </Link>
+      </div>
     </form> 
     </>
   )
 }
 
-export default Roompage
+export default Joinroom

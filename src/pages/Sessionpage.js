@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import socketIOClient from "socket.io-client"
-const ENDPOINT = "http://localhost:4001" // add to reusable folder 
+const ENDPOINT = "http://localhost:4005" // add to reusable folder // CHANGE ENDPOINT LATER 8June
 const socket = socketIOClient(ENDPOINT)
 
 const Sessionpage = () => {

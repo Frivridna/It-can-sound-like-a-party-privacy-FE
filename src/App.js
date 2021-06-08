@@ -4,8 +4,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // const ENDPOINT = "http://localhost:4001" // add to reusable folder 
 // const socket = socketIOClient(ENDPOINT)
 
-import Roompage from './pages/Roompage'
+import Createroom from './pages/Createroom'
 import Sessionpage from './pages/Sessionpage'
+import Entrance from './pages/Entrance'
+import Joinroom from './pages/Joinroom'
 
 export const App = () => {
 
@@ -14,15 +16,34 @@ export const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact >
-          <Roompage />
+          <Entrance />
         </Route>
-        <Route path="/session/:room" exact >
-          <Sessionpage />
+        <Route path="/createroom" exact >
+          <Createroom />
         </Route>
+        
       </Switch>
     </BrowserRouter>
   )
 }
+
+
+/*
+<Route path="/joinroom" exact >
+          <Joinroom />
+        </Route>
+        <Route path="/session/:room" exact >
+          <Sessionpage />
+        </Route>
+
+
+*/
+
+
+
+
+
+
 
 // old version ! 
 
