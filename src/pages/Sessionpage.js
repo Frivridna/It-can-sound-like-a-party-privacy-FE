@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import socketIOClient from "socket.io-client"
-const ENDPOINT = "http://localhost:4005" // add to reusable folder // CHANGE ENDPOINT LATER 8June
+import { ENDPOINT } from '../reusable/urls'
 const socket = socketIOClient(ENDPOINT)
 
 const Sessionpage = () => {
@@ -15,7 +15,7 @@ const Sessionpage = () => {
       }
     }
 
-    const socket = socketIOClient(ENDPOINT);
+    //const socket = socketIOClient(ENDPOINT);
     socket.on("FromAPI", response => {
       setResponse(response)
       console.log('From API: ', + response)

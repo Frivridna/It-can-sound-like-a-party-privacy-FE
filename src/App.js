@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // import socketIOClient from "socket.io-client"
-// const ENDPOINT = "http://localhost:4001" // add to reusable folder 
+// const ENDPOINT = "http://localhost:4001"
 // const socket = socketIOClient(ENDPOINT)
 
 import Createroom from './pages/Createroom'
@@ -21,7 +21,12 @@ export const App = () => {
         <Route path="/createroom" exact >
           <Createroom />
         </Route>
-        
+        <Route path="/joinroom" exact >
+          <Joinroom />
+        </Route>
+        <Route path="/session/:room" exact >
+          <Sessionpage />
+        </Route>
       </Switch>
     </BrowserRouter>
   )
@@ -29,12 +34,8 @@ export const App = () => {
 
 
 /*
-<Route path="/joinroom" exact >
-          <Joinroom />
-        </Route>
-        <Route path="/session/:room" exact >
-          <Sessionpage />
-        </Route>
+
+        
 
 
 */

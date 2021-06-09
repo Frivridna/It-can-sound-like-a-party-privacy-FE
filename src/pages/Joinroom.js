@@ -4,10 +4,10 @@ import socketIOClient from "socket.io-client"
 const ENDPOINT = "http://localhost:4001" // add to reusable folder 
 const socket = socketIOClient(ENDPOINT)
 
-const Joinroom = () => {
+const Joinroom = ({ setSecretCode }) => {
   const [ourCond, setCondition] = useState("")
   // const [value, setValue] = useState("")
-  const [room, setRoom] = useState("")
+  const [userBInput, setUserBInput] = useState("")
 
   /*useEffect(() => {
     const test = 1
@@ -30,37 +30,45 @@ const Joinroom = () => {
   
   console.log(ourCond)*/
   
-  console.log(room)
+  console.log(userBInput)
   
+  // User B wants to join session with code
+  useEffect(() => {
+    socket.on("sendCode", (arg) => {
+      setSecretCode(arg) // trigger
+    })
+    socket.emit('join-room', userBInput) // code 
+  },[userBInput])
   
   // ROOMS SECTION ENDS
   
   const setRoomName = (e) => {
   //    setValue(value)
-    setRoom(e.target.value)
+    setUserBInput(e.target.value)
   }
   
-  /*const onSubmit = (e) => {
+  const onSubmit = (e) => {
       e.preventDefault()
-      socket.emit('join-room', room)
-  }*/
-  
+      setUserBInput(e.target.value)
+      socket.emit('join-room', userBInput) // code 
+  }
+
   return (
     <>
     <h3>
-      Join Group
+      Join Group - user B
     </h3>
     <p>I am connected with {socket.id}</p>
-    <form>
+    <form onSubmit={onSubmit}>
       <label>
-        Search groupname:
+        CODE: 
           <input 
             type="text"
             onChange={e => setRoomName(e)}
-            value={room}
+            value={userBInput}
           />
       </label>
-      <Link to={`/session/${room}`}>
+      <Link to={`/session/${userBInput}`}>
         <button type="submit">Submit group name</button>
       </Link>
       <div>

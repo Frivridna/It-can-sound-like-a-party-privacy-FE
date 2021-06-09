@@ -2,15 +2,28 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import socketIOClient from "socket.io-client"
 import { ENDPOINT } from '../reusable/urls'
-//const { ENDPOINT } = "http://localhost:4001" // add to reusable folder 
-const socket = socketIOClient(ENDPOINT) // Test
+const socket = socketIOClient(ENDPOINT)
 
 const Createroom = () => {
-  const [ourCond, setCondition] = useState("")
+  const [secretCode, setSecretCode] = useState("")
   // const [value, setValue] = useState("")
   const [room, setRoom] = useState("")
-
   
+  useEffect(() => {
+    //socket.emit('code', input)
+    socket.emit('code', "trigger"); 
+  },[])
+
+  useEffect(() => {
+    socket.on("sendCode", (arg) => {
+      setSecretCode(arg) // trigger
+  })
+
+    socket.emit('create', room)
+
+  }, [secretCode]) 
+  //console.log(secretCode)
+
   /*useEffect(() => {
     const test = 0
     
@@ -34,26 +47,27 @@ const Createroom = () => {
   
   console.log(room)
   
-  
-  // ROOMS SECTION ENDS
-  
-  const setRoomName = (e) => {
-  //    setValue(value)
-    setRoom(e.target.value)
-  }
-  
   const onSubmit = (e) => {
-      e.preventDefault()
-      //socket.emit('join-room', room)
+    e.preventDefault()
+    //socket.emit('join-room', room)
+    socket.emit('join-room', room)
   }
-  
+
   return (
     <>
     <h3>
       User A
     </h3>
-    <p>Here is your groupname ${}</p>
+    <p>CODE: {secretCode}</p>
 
+      <form 
+        onSubmit={onSubmit}
+        value={secretCode}
+      >
+        <Link to={`/session/${secretCode}`} >
+          <button type="submit">ENTER THE WORLD</button>
+        </Link>
+      </form>
 
       <div>
         <Link to={`/`}>
