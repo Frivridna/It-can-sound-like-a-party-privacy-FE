@@ -5,10 +5,10 @@ const ENDPOINT = "http://localhost:4001" // add to reusable folder
 const socket = socketIOClient(ENDPOINT)
 
 const Joinroom = ({ setSecretCode }) => {
-  const [ourCond, setCondition] = useState("")
+//  const [ourCond, setCondition] = useState("")
   // const [value, setValue] = useState("")
   const [userBInput, setUserBInput] = useState("")
-
+  const [messageFromServer, setMessageFromServer] = useState("")
   /*useEffect(() => {
     const test = 1
     
@@ -47,6 +47,14 @@ const Joinroom = ({ setSecretCode }) => {
     setUserBInput(e.target.value)
   }
   
+
+  // Make an extra component that is not this JoinRoom page. That displays the message from server when 3rd person tries to join. That's all we can do right now. 
+  // CREATE ERROR COMPONENT POP-UP that displays this message! :) 
+  socket.on('status', (messageFromServer) => {
+    console.log(messageFromServer) // setError(true)
+    setMessageFromServer(messageFromServer)
+  })
+
   const onSubmit = (e) => {
       e.preventDefault()
       setUserBInput(e.target.value)
@@ -59,6 +67,7 @@ const Joinroom = ({ setSecretCode }) => {
       Join Group - user B
     </h3>
     <p>I am connected with {socket.id}</p>
+    <p>The room is: {messageFromServer}</p>
     <form onSubmit={onSubmit}>
       <label>
         CODE: 

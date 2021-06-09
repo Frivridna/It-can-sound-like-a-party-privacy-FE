@@ -11,16 +11,14 @@ const Createroom = () => {
   
   useEffect(() => {
     //socket.emit('code', input)
-    socket.emit('code', "trigger"); 
+    socket.emit('create', true); 
   },[])
 
   useEffect(() => {
     socket.on("sendCode", (arg) => {
       setSecretCode(arg) // trigger
-  })
-
-    socket.emit('create', room)
-
+    })
+    // socket.emit('create', true)
   }, [secretCode]) 
   //console.log(secretCode)
 
