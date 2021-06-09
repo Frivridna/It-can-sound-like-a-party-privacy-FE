@@ -47,7 +47,7 @@ const Joinroom = ({ setSecretCode }) => {
     setUserBInput(e.target.value)
   }
   
-
+  // HOW TO SEND THIS to socket.id >= 2 that tries to enter with the same code??? Ta reda på! :) 
   // Make an extra component that is not this JoinRoom page. That displays the message from server when 3rd person tries to join. That's all we can do right now. 
   // CREATE ERROR COMPONENT POP-UP that displays this message! :) 
   socket.on('status', (messageFromServer) => {
