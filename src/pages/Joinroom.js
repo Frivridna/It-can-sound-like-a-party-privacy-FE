@@ -1,43 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import socketIOClient from "socket.io-client"
-const ENDPOINT = "http://localhost:4001" // add to reusable folder 
-const socket = socketIOClient(ENDPOINT)
+//const ENDPOINT = "http://localhost:4001" // add to reusable folder 
 
-const Joinroom = ({ setSecretCode }) => {
+
+const Joinroom = ({ setSecretCode, ENDPOINT }) => {
+  const socket = socketIOClient(ENDPOINT)
 //  const [ourCond, setCondition] = useState("")
   // const [value, setValue] = useState("")
   const [userBInput, setUserBInput] = useState("")
-  const [messageFromServer, setMessageFromServer] = useState("")
-  /*useEffect(() => {
-    const test = 1
-    
-    const message = room
-    //const room = "turtles"
-    const socket = socketIOClient(ENDPOINT);
-    socket.emit("create", test)
-    socket.emit("big-poppa", message, room);
-    console.log(socket.id)
-  }, []);
-  */
-  
-   /*useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-    socket.on("conditional", (arg) => {
-      setCondition(arg); // trigger
-    });
-  }, [ourCond]); 
-  
-  console.log(ourCond)*/
-  
-  console.log(userBInput)
-  
+  const [messageFromServer, setMessageFromServer] = useState("")  
+
   // User B wants to join session with code
   useEffect(() => {
     socket.on("sendCode", (arg) => {
       setSecretCode(arg) // trigger
     })
-    socket.emit('join-room', userBInput) // code 
+    socket.emit('join-room', userBInput)
     socket.emit('userB', 'Role B')
   },[userBInput])
   
@@ -59,10 +38,8 @@ const Joinroom = ({ setSecretCode }) => {
   const onSubmit = (e) => {
       e.preventDefault()
       setUserBInput(e.target.value)
-      socket.emit('join-room', userBInput) // code 
+      socket.emit('join-room', userBInput)
   }
-
-
 
   return (
     <>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import socketIOClient from "socket.io-client"
-import { ENDPOINT } from '../reusable/urls'
-const socket = socketIOClient(ENDPOINT)
+const Createroom = ({ ENDPOINT }) => {
+  console.log(ENDPOINT)
+  const socket = socketIOClient(ENDPOINT)
 
-const Createroom = () => {
   const [secretCode, setSecretCode] = useState("")
   // const [value, setValue] = useState("")
   const [room, setRoom] = useState("")
@@ -23,34 +23,11 @@ const Createroom = () => {
     socket.emit('userA', 'Role A')
     // socket.emit('create', true)
   }, [secretCode, userRole]) 
- 
-
-  /*useEffect(() => {
-    const test = 0
-    
-    const message = room
-    //const room = "turtles"
-    //const socket = socketIOClient(ENDPOINT); test
-    
-    socket.emit("big-poppa", message, room);
-    console.log(socket.id)
-  }, []);*/
-
-
-   /*useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-    socket.on("conditional", (arg) => {
-      setCondition(arg); // trigger
-    });
-  }, [ourCond]); 
-  
-  console.log(ourCond)*/
   
   console.log(room)
   
   const onSubmit = (e) => {
     e.preventDefault()
-    //socket.emit('join-room', room)
     socket.emit('join-room', room)
   }
 
@@ -60,8 +37,7 @@ const Createroom = () => {
       User A
     </h3>
     <h4>Your role: {userRole}</h4>
-    <p>CODE: {secretCode}</p>
-
+      <p>CODE: {secretCode}</p>
       <form 
         onSubmit={onSubmit}
         value={secretCode}
@@ -70,13 +46,11 @@ const Createroom = () => {
           <button type="submit">ENTER THE WORLD</button>
         </Link>
       </form>
-
       <div>
         <Link to={`/`}>
-        <button type="submit">Back</button>
+          <button type="submit">Back</button>
         </Link>
-      </div>
-
+      </div> 
     </>
   )
 }

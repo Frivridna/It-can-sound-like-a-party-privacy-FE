@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import socketIOClient from "socket.io-client"
-import { ENDPOINT } from '../reusable/urls'
-const socket = socketIOClient(ENDPOINT)
 
-const Sessionpage = () => {
+const Sessionpage = ({ ENDPOINT }) => {
+
+  const socket = socketIOClient(ENDPOINT)
   const [response, setResponse] = useState("")
 
   useEffect(() => {
@@ -11,23 +11,19 @@ const Sessionpage = () => {
       console.log('Play audio: ' + response)
       if (response) {
       let audio = new Audio(response)
-      audio.play(response)
+      // NEW - to see if it can be a delay in playing the audio. 
+        setTimeout(() => {audio.play(response)}, 5000) 
       }
-    }
+    }   // setTimeout(() => { setLoad(false)},3000)
 
-    //const socket = socketIOClient(ENDPOINT);
     socket.on("FromAPI", response => {
       setResponse(response)
-      console.log('From API: ', + response)
+      console.log('From API: ',  response)
+        setTimeout(() => {
+          playAudio(response)}, 5000
+        )  
       playAudio(response)
     })
-  
-    /*socket.on("FromAPI", response => {
-      setResponse(response)
-      console.log('From API: ', + response)
-      playAudio(response)
-    })*/
-
   }, [response])
 
   const sendSocketClick = () => {
@@ -37,7 +33,8 @@ const Sessionpage = () => {
   
   return (
     <>
-    <button onClick={() => sendSocketClick()}>button</button> 
+    <h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user. ❤️</h4>
+    <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
     </>
   )
 }
