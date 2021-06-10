@@ -24,6 +24,19 @@ const Sessionpage = ({ ENDPOINT }) => {
         )  
       playAudio(response)
     })
+
+
+    socket.on("FromSecondAPI", secondResponse => {
+      setResponse(secondResponse)
+      console.log('From API: ',  secondResponse)
+        setTimeout(() => {
+          playAudio(secondResponse)}, 5000
+        )  
+      playAudio(secondResponse)
+    })
+
+
+
   }, [response])
 
   const sendSocketClick = () => {
