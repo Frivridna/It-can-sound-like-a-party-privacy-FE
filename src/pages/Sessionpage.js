@@ -21,6 +21,13 @@ const Sessionpage = () => {
       console.log('From API: ', + response)
       playAudio(response)
     })
+  
+    /*socket.on("FromAPI", response => {
+      setResponse(response)
+      console.log('From API: ', + response)
+      playAudio(response)
+    })*/
+
   }, [response])
 
   const sendSocketClick = () => {

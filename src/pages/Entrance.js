@@ -32,10 +32,10 @@ const Entrance = () => {
     //socket.emit('code', "world"); 
   },[])*/ //Nyss utkommenterat
 
-  useEffect(() => {
+/*   useEffect(() => {
     //socket.emit('code', input)
     socket.emit('code', ""); 
-  },[])
+  },[]) */
 
   return (
     <>

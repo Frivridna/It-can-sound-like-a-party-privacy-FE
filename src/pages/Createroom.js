@@ -8,6 +8,7 @@ const Createroom = () => {
   const [secretCode, setSecretCode] = useState("")
   // const [value, setValue] = useState("")
   const [room, setRoom] = useState("")
+  const [userRole, setUserRole] = useState("")
   
   useEffect(() => {
     //socket.emit('code', input)
@@ -15,12 +16,14 @@ const Createroom = () => {
   },[])
 
   useEffect(() => {
-    socket.on("sendCode", (arg) => {
+    socket.on("sendCode", (arg, role) => {
       setSecretCode(arg) // trigger
+      setUserRole(role)
     })
+    socket.emit('userA', 'Role A')
     // socket.emit('create', true)
-  }, [secretCode]) 
-  //console.log(secretCode)
+  }, [secretCode, userRole]) 
+ 
 
   /*useEffect(() => {
     const test = 0
@@ -56,6 +59,7 @@ const Createroom = () => {
     <h3>
       User A
     </h3>
+    <h4>Your role: {userRole}</h4>
     <p>CODE: {secretCode}</p>
 
       <form 

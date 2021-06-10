@@ -38,6 +38,7 @@ const Joinroom = ({ setSecretCode }) => {
       setSecretCode(arg) // trigger
     })
     socket.emit('join-room', userBInput) // code 
+    socket.emit('userB', 'Role B')
   },[userBInput])
   
   // ROOMS SECTION ENDS
@@ -60,6 +61,8 @@ const Joinroom = ({ setSecretCode }) => {
       setUserBInput(e.target.value)
       socket.emit('join-room', userBInput) // code 
   }
+
+
 
   return (
     <>
