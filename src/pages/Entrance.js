@@ -26,21 +26,3 @@ const Entrance = ({ ENDPOINT }) => {
 }
 
 export default Entrance
-
-/*
-<>
-    <div>
-        <h1>Welcome</h1>
-    </div>
-      <Link to={`/createroom`}>
-        <form onSubmit={onFormSubmit}>
-          <button type="submit" value={value}>Create Room</button>
-        </form>
-      </Link>
-      <Link to={`/joinroom`}>
-        <button type="submit">Join Room</button>
-      </Link>
-    </>
-
-
-*/

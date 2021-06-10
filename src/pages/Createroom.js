@@ -6,12 +6,10 @@ const Createroom = ({ ENDPOINT }) => {
   const socket = socketIOClient(ENDPOINT)
 
   const [secretCode, setSecretCode] = useState("")
-  // const [value, setValue] = useState("")
   const [room, setRoom] = useState("")
   const [userRole, setUserRole] = useState("")
   
   useEffect(() => {
-    //socket.emit('code', input)
     socket.emit('create', true); 
   },[])
 
@@ -21,7 +19,6 @@ const Createroom = ({ ENDPOINT }) => {
       setUserRole(role)
     })
     socket.emit('userA', 'Role A')
-    // socket.emit('create', true)
   }, [secretCode, userRole]) 
   
   console.log(room)

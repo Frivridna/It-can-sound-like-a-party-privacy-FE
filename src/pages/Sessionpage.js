@@ -11,14 +11,14 @@ const Sessionpage = ({ ENDPOINT }) => {
       console.log('Play audio: ' + response)
       if (response) {
       let audio = new Audio(response)
-      // NEW - to see if it can be a delay in playing the audio. 
+      // NEW - to see if it can play with 5 sec of delay
         setTimeout(() => {audio.play(response)}, 5000) 
       }
-    }   // setTimeout(() => { setLoad(false)},3000)
-
+    }
     socket.on("FromAPI", response => {
       setResponse(response)
       console.log('From API: ',  response)
+       //do we need this second setTimeout as well ? 
         setTimeout(() => {
           playAudio(response)}, 5000
         )  
@@ -38,11 +38,6 @@ const Sessionpage = ({ ENDPOINT }) => {
 
 
   }, [response])
-
-  const sendSocketClick = () => {
-    console.log('Sends a click')
-    socket.emit('click', true)
-  }
   
   return (
     <>

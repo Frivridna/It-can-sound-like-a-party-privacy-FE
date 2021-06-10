@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import socketIOClient from "socket.io-client"
-//const ENDPOINT = "http://localhost:4001" // add to reusable folder 
-
 
 const Joinroom = ({ setSecretCode, ENDPOINT }) => {
   const socket = socketIOClient(ENDPOINT)
-//  const [ourCond, setCondition] = useState("")
-  // const [value, setValue] = useState("")
   const [userBInput, setUserBInput] = useState("")
   const [messageFromServer, setMessageFromServer] = useState("")  
 
@@ -20,10 +16,7 @@ const Joinroom = ({ setSecretCode, ENDPOINT }) => {
     socket.emit('userB', 'Role B')
   },[userBInput])
   
-  // ROOMS SECTION ENDS
-  
   const setRoomName = (e) => {
-  //    setValue(value)
     setUserBInput(e.target.value)
   }
   

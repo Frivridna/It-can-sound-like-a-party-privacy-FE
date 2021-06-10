@@ -32,21 +32,7 @@ export const App = () => {
   )
 }
 
-
-/*
-
-
-
-
-*/
-
-
-
-
-
-
-
-// old version ! 
+// old version ! ---> Check the return! :) aka Clean up the useEffect. 
 
 /*
 export const App = () => {
@@ -64,7 +50,6 @@ export const App = () => {
 
   return (
     <p>
-      It's <time dateTime={response}>{response}</time>
     </p>
   );
 }
