@@ -16,6 +16,7 @@ const Sessionpage = ({ ENDPOINT }) => {
         audio.play(response)
       }
     }
+    // socket.id afteer "FromAPI"
      socket.on("FromAPI", response => {
        setResponse(response)
        console.log('From API: ',  response)
