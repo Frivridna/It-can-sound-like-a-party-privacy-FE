@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import socketIOClient from "socket.io-client"
 
-const Joinroom = ({ setSecretCode, ENDPOINT }) => {
+const Joinroom = ({ ENDPOINT }) => {
   const socket = socketIOClient(ENDPOINT)
   const [userBInput, setUserBInput] = useState("")
   const [messageFromServer, setMessageFromServer] = useState("")  

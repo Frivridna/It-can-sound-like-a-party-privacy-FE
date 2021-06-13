@@ -20,10 +20,10 @@ const Sessionpage = ({ ENDPOINT }) => {
        setResponse(response)
        console.log('From API: ',  response)
         //do we need this second setTimeout as well ? 
-        setTimeout(() => {
-         playAudio(response)}, 3000
-        )
-//       playAudio(response)
+        // setTimeout(() => {
+        //  playAudio(response)}, 3000
+        // )
+      playAudio(response)
      })
 
 
