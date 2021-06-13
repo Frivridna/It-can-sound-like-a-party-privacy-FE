@@ -12,28 +12,29 @@ const Sessionpage = ({ ENDPOINT }) => {
       if (response) {
         let audio = new Audio(response)
         // NEW - to see if it can play with 5 sec of delay
-        setTimeout(() => {audio.play(response)}, 5000) 
+        // setTimeout(() => {audio.play(response)}, 3000) 
+        audio.play(response)
       }
     }
-    socket.on("FromAPI", response => {
-      setResponse(response)
-      console.log('From API: ',  response)
-       //do we need this second setTimeout as well ? 
-/*       setTimeout(() => {
-        playAudio(response)}, 5000
-      )   */
-      playAudio(response)
-    })
+     socket.on("FromAPI", response => {
+       setResponse(response)
+       console.log('From API: ',  response)
+        //do we need this second setTimeout as well ? 
+        setTimeout(() => {
+         playAudio(response)}, 3000
+        )
+//       playAudio(response)
+     })
 
 
-    socket.on("FromSecondAPI", secondResponse => {
+/*     socket.on("FromSecondAPI", secondResponse => {
       setResponse(secondResponse)
       console.log('From API: ',  secondResponse)
-        setTimeout(() => {
-          playAudio(secondResponse)}, 5000
-        )  
-      playAudio(secondResponse)
-    })
+         setTimeout(() => {
+          playAudio(secondResponse)}, 3000
+        )
+      //playAudio(secondResponse)
+    }) */
 
 
 
