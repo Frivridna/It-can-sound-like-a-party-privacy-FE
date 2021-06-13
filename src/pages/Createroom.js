@@ -16,9 +16,9 @@ const Createroom = ({ ENDPOINT }) => {
   useEffect(() => {
     socket.on("sendCode", (arg, role) => {
       setSecretCode(arg) // trigger
-      setUserRole(role)
+    //  setUserRole(role)
     })
-    socket.emit('userA', 'Role A')
+  //  socket.emit('userA', 'Role A')
   }, [secretCode, userRole]) 
   
   console.log(room)

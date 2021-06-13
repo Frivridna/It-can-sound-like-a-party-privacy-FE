@@ -9,11 +9,11 @@ const Joinroom = ({ setSecretCode, ENDPOINT }) => {
 
   // User B wants to join session with code
   useEffect(() => {
-    socket.on("sendCode", (arg) => {
+/*     socket.on("sendCode", (arg) => {
       setSecretCode(arg) // trigger
-    })
+    }) */
     socket.emit('join-room', userBInput)
-    socket.emit('userB', 'Role B')
+    //socket.emit('userB', 'Role B')
   },[userBInput])
   
   const setRoomName = (e) => {
