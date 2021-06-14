@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import socketIOClient from "socket.io-client"
+import socketIOClient from 'socket.io-client'
 const Createroom = ({ ENDPOINT }) => {
-  //console.log(ENDPOINT)
   const socket = socketIOClient(ENDPOINT)
 
   const [secretCode, setSecretCode] = useState("")
-  const [room, setRoom] = useState("")
-  const [userRole, setUserRole] = useState("")
+  const [userAinput, setUserAinput] = useState("")
   
   useEffect(() => {
-    socket.emit('create', true); 
+    socket.emit('create', true);
   },[])
 
-  useEffect(() => {
-    socket.on("sendCode", (arg, role) => {
-      setSecretCode(arg) // trigger
-    //  setUserRole(role)
-    })
-  //  socket.emit('userA', 'Role A')
-  }, [secretCode, userRole]) 
-  
-  console.log(room)
-  
+  socket.on("sendCode", (arg) => {
+    setSecretCode(arg) 
+    setUserAinput(arg)
+  })
+
   const onSubmit = (e) => {
     e.preventDefault()
-    socket.emit('join-room', room)
+    socket.emit('join-room', userAinput)
+    console.log(userAinput)
   }
 
   return (
@@ -33,7 +27,6 @@ const Createroom = ({ ENDPOINT }) => {
     <h3>
       User A
     </h3>
-    <h4>Your role: {userRole}</h4>
       <p>CODE: {secretCode}</p>
       <form 
         onSubmit={onSubmit}

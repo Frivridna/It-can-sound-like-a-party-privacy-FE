@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import socketIOClient from "socket.io-client"
+import socketIOClient from 'socket.io-client'
 
 const Sessionpage = ({ ENDPOINT }) => {
 
   const socket = socketIOClient(ENDPOINT)
   const [response, setResponse] = useState("")
+  const [secondResponse, setSecondResponse] = useState("")
+  
 
-  useEffect(() => {
+  // useEffect(() => {
     const playAudio = (response) => {
       console.log('Play audio: ' + response)
       if (response) {
@@ -16,30 +18,41 @@ const Sessionpage = ({ ENDPOINT }) => {
         audio.play(response)
       }
     }
-    // socket.id afteer "FromAPI"
-     socket.on("FromAPI", response => {
-       setResponse(response)
-       console.log('From API: ',  response)
-        //do we need this second setTimeout as well ? 
-        // setTimeout(() => {
-        //  playAudio(response)}, 3000
-        // )
-      playAudio(response)
-     })
+// }, [response])
 
+  //   socket.on("FromAPI", response => {
+  //     setResponse(response)
+  //     console.log('From API: ',  response)
+  //      //do we need this second setTimeout as well ? 
+  //      // setTimeout(() => {
+  //      //  playAudio(response)}, 3000
+  //      // )
+  //    //playAudio(response)
+  //   })
+  
+  
+  //   socket.on("FromSecondAPI", secondResponse => {
+  //    setResponse(secondResponse)
+  //    console.log('From API: ',  secondResponse)
+  //       //setTimeout(() => {
+  //        //playAudio(secondResponse)}, 3000
+  //      //)
+  //    //playAudio(secondResponse)
+  //  }) 
+  //   // socket.id afteer "FromAPI"
 
-/*     socket.on("FromSecondAPI", secondResponse => {
-      setResponse(secondResponse)
-      console.log('From API: ',  secondResponse)
-         setTimeout(() => {
-          playAudio(secondResponse)}, 3000
-        )
-      //playAudio(secondResponse)
-    }) */
+  socket.on("FromAPI", data => {
+    setResponse(data)
+    console.log('From First API: ', data)
+  })
 
+  socket.on("FromSecondAPI", data => {
+    setSecondResponse(data)
+    console.log('From Second API: ', data)
+  })
 
-
-  }, [response])
+  console.log(response)
+  console.log(secondResponse)
   
   return (
     <>
