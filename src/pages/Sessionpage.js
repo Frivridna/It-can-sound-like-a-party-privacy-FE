@@ -36,7 +36,6 @@ const Sessionpage = ({ ENDPOINT }) => {
   
   return (
     <>
-    <h2>User A session</h2>
     <h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user. ❤️</h4>
     <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
     </>

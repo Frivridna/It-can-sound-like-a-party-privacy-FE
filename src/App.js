@@ -7,7 +7,7 @@ import { ENDPOINT } from './reusable/urls'
 
 import Createroom from './pages/Createroom'
 import Sessionpage from './pages/Sessionpage'
-import UserBSession from './pages/UserBSession'
+//import UserBSession from './pages/UserBSession'
 import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
 export const App = () => {
@@ -25,7 +25,7 @@ export const App = () => {
         <Route path="/joinroom" exact >
           <Joinroom ENDPOINT={ENDPOINT} />
         </Route>
-        <Route path="/session" exact > {/*"/session/:room"*/}
+        <Route path="/session/:room" exact > {/*"/session/:room"*/}
           <Sessionpage ENDPOINT={ENDPOINT} />
         </Route>
 {/*         <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
