@@ -21,23 +21,15 @@ const Sessionpage = ({ ENDPOINT }) => {
     socket.on("FromAPI", response => {
       setResponse(response)
       console.log('From API: ',  response)
-       //do we need this second setTimeout as well ? 
-/*         setTimeout(() => {
-           playAudio(response)}, 5000
-        ) */
      playAudio(response)
     })
-  }, [response])
 
-  //   socket.on("FromSecondAPI", secondResponse => {
-  //    setResponse(secondResponse)
-  //    console.log('From API: ',  secondResponse)
-  //       //setTimeout(() => {
-  //        //playAudio(secondResponse)}, 3000
-  //      //)
-  //    //playAudio(secondResponse)
-  //  }) 
-  //   // socket.id afteer "FromAPI"
+    socket.on("FromSecondAPI", secondResponse => {
+      setResponse(secondResponse)
+        console.log('From API: ',  secondResponse)
+      playAudio(secondResponse)
+    }) 
+  }, [response])
 
   console.log(response)
   console.log(secondResponse)

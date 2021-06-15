@@ -28,9 +28,9 @@ export const App = () => {
         <Route path="/session" exact > {/*"/session/:room"*/}
           <Sessionpage ENDPOINT={ENDPOINT} />
         </Route>
-        <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
-          <UserBSession ENDPOINT={ENDPOINT} />
-        </Route>
+{/*         <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
+{/*          <UserBSession ENDPOINT={ENDPOINT} /> */}
+{/*         </Route> */}
       </Switch>
     </BrowserRouter>
   )
