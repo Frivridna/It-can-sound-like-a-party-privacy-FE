@@ -20,3 +20,7 @@ Alternatively, if you don't want a new git repo on your account;
 
 
 npm i react-router-dom
+npm install @reduxjs/toolkit
+npm install react-redux
+install uniqid this version: 
+"uniqid": "^5.3.0"

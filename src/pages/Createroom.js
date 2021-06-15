@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
-import socketIOClient from 'socket.io-client'
-const Createroom = ({ ENDPOINT }) => {
-  const socket = socketIOClient(ENDPOINT)
+
+import { SocketContext } from '../service/socket'
+//import socketIOClient from 'socket.io-client'
+const Createroom = () => {
+  //const socket = socketIOClient(ENDPOINT)
+  const socket = useContext(SocketContext)
 
   const [secretCode, setSecretCode] = useState("")
   const [userAinput, setUserAinput] = useState("")

@@ -1,38 +1,47 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-// import socketIOClient from "socket.io-client"
-// const socket = socketIOClient(ENDPOINT)
-
-import { ENDPOINT } from './reusable/urls'
+//import socketIOClient from "socket.io-client"
+//import io from 'socket.io-client'
+import { SocketContext, socket } from './service/socket'
 
 import Createroom from './pages/Createroom'
 import Sessionpage from './pages/Sessionpage'
 //import UserBSession from './pages/UserBSession'
 import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
+import Login from './pages/Login'
+
+//import { ENDPOINT } from './reusable/urls'
+//const socket = socketIOClient(ENDPOINT)
+
+
 export const App = () => {
-
-
+ // ENDPOINT={ENDPOINT}
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact >
-          <Entrance ENDPOINT={ENDPOINT}/>
-        </Route>
-        <Route path="/createroom" exact >
-          <Createroom ENDPOINT={ENDPOINT} />
-        </Route>
-        <Route path="/joinroom" exact >
-          <Joinroom ENDPOINT={ENDPOINT} />
-        </Route>
-        <Route path="/session/:room" exact > {/*"/session/:room"*/}
-          <Sessionpage ENDPOINT={ENDPOINT} />
-        </Route>
-{/*         <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
-{/*          <UserBSession ENDPOINT={ENDPOINT} /> */}
-{/*         </Route> */}
-      </Switch>
-    </BrowserRouter>
+    <SocketContext.Provider value={socket}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact >
+            <Entrance />
+          </Route>
+          <Route path="/createroom" exact >
+            <Createroom />
+          </Route>
+          <Route path="/joinroom" exact >
+            <Joinroom />
+          </Route>
+          <Route path="/session/:room" exact > {/*"/session/:room"*/}
+            <Sessionpage />
+          </Route>
+          <Route path="/login" exact > 
+            <Login />
+          </Route>
+  {/*         <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
+  {/*          <UserBSession ENDPOINT={ENDPOINT} /> */}
+  {/*         </Route> */}
+        </Switch>
+      </BrowserRouter>
+    </SocketContext.Provider>
   )
 }
 

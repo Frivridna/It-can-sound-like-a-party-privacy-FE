@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import socketIOClient from "socket.io-client"
+//import socketIOClient from "socket.io-client"
 
-const Joinroom = ({ ENDPOINT }) => {
-  const socket = socketIOClient(ENDPOINT)
+import { SocketContext } from '../service/socket'
+const Joinroom = () => {
+  //const socket = socketIOClient(ENDPOINT)
+  const socket = useContext(SocketContext)
+
   const [userBInput, setUserBInput] = useState("")
   const [messageFromServer, setMessageFromServer] = useState("")  
 

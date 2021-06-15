@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import socketIOClient from 'socket.io-client'
 
-const Sessionpage = ({ ENDPOINT }) => {
+import { SocketContext } from '../service/socket'
+const Sessionpage = () => {
+  //const socket = socketIOClient(ENDPOINT)
+  const socket = useContext(SocketContext)
 
-  const socket = socketIOClient(ENDPOINT)
   const [response, setResponse] = useState("")
   const [secondResponse, setSecondResponse] = useState("")
   

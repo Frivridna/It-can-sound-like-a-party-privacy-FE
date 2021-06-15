@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react' // added useContext here 
 import { Link } from 'react-router-dom'
-import socketIOClient from "socket.io-client"
+//import socketIOClient from "socket.io-client"
+import { SocketContext } from '../service/socket'
 
 import Createroom from './Createroom'
 import Joinroom from './Joinroom'
-const Entrance = ({ ENDPOINT }) => {
-
-  //const ENDPOINT = ENDPOINT
-  console.log(ENDPOINT)
+const Entrance = () => { //deleted ENDPOINT 
+  const socket = useContext(SocketContext)
+  
   return (
     <>
     <div>
@@ -21,6 +21,11 @@ const Entrance = ({ ENDPOINT }) => {
       <Link to={`/joinroom`}>
         <button> Room</button>
       </Link>
+      <div>
+      <Link to={`/login`}>
+        <button> Admin login</button>
+      </Link>
+      </div>
     </>
   )
 }
