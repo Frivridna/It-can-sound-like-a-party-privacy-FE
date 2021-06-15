@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import socketIOClient from 'socket.io-client'
 
-const Sessionpage = ({ ENDPOINT }) => {
+const UserBSession = ({ ENDPOINT }) => {
 
   const socket = socketIOClient(ENDPOINT)
   const [response, setResponse] = useState("")
@@ -18,9 +18,9 @@ const Sessionpage = ({ ENDPOINT }) => {
         //audio.play(response)
       }
     }
-    socket.on("FromAPI", response => {
+    socket.on("FromSecondAPI", response => {
       setResponse(response)
-      console.log('From API: ',  response)
+      console.log('From SecondAPI: ',  response)
        //do we need this second setTimeout as well ? 
 /*         setTimeout(() => {
            playAudio(response)}, 5000
@@ -44,11 +44,11 @@ const Sessionpage = ({ ENDPOINT }) => {
   
   return (
     <>
-    <h2>User A session</h2>
+    <h2>User B </h2>
     <h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user. ❤️</h4>
     <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
     </>
   )
 }
 
-export default Sessionpage
+export default UserBSession

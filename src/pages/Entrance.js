@@ -13,12 +13,12 @@ const Entrance = ({ ENDPOINT }) => {
     <div>
         <h1>Welcome</h1>
     </div>
-      <Link to={`/createroom` } >
+      <Link to={`/session` } >
           <button >Create Room</button>
           
       </Link>
 
-      <Link to={`/joinroom`}>
+      <Link to={`/userbsession`}>
         <button> Room</button>
       </Link>
     </>
