@@ -30,9 +30,7 @@ export const App = () => {
           <Route path="/joinroom" exact >
             <Joinroom />
           </Route>
-          <Route path="/session/:room" exact > {/*"/session/:room"*/}
-            <Sessionpage />
-          </Route>
+          <Route path="/session/:room" component={Sessionpage} /> 
           <Route path="/login" exact > 
             <Login />
           </Route>
