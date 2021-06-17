@@ -13,6 +13,7 @@ import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
 import Login from './pages/Login'
 import Test from './pages/Test'
+import FinishPage from './components/FinishPage'
 
 //import { ENDPOINT } from './reusable/urls'
 //const socket = socketIOClient(ENDPOINT)
@@ -49,9 +50,7 @@ export const App = () => {
             <Route path="/sounds" exact > 
               <Test />
             </Route>
-    {/*         <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
-    {/*          <UserBSession ENDPOINT={ENDPOINT} /> */}
-    {/*         </Route> */}
+            <Route path="/goodbye" component={FinishPage} />
           </Switch>
         </Provider>
       </BrowserRouter>
