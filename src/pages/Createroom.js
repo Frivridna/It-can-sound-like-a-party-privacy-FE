@@ -1,17 +1,16 @@
-import React, { useState, useEffect, useContext} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import uniqid from 'uniqid';
 
-import { SocketContext } from '../service/socket'
+//import { SocketContext } from '../service/socket'
 //import socketIOClient from 'socket.io-client'
 const Createroom = () => {
-  const [room, setRoom] = useState('');
+  const [room, setRoom] = useState('')
 
   const onRoomCreate = () => {
-    setRoom(uniqid());
+    setRoom(uniqid())
   }
- 
-
+  
   return (
     <>
       <h3>Press to generate room code</h3>

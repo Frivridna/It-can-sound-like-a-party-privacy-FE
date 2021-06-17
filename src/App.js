@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Provider } from 'react-redux'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 //import socketIOClient from "socket.io-client"
 //import io from 'socket.io-client'
@@ -10,9 +12,18 @@ import Sessionpage from './pages/Sessionpage'
 import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
 import Login from './pages/Login'
+import Test from './pages/Test'
 
 //import { ENDPOINT } from './reusable/urls'
 //const socket = socketIOClient(ENDPOINT)
+import credentials from './reducers/credentials'
+
+const reducer = combineReducers({
+  credentials: credentials.reducer
+})
+
+const store = configureStore({ reducer })
+
 
 
 export const App = () => {
@@ -20,24 +31,29 @@ export const App = () => {
   return (
     <SocketContext.Provider value={socket}>
       <BrowserRouter>
-        <Switch>
-          <Route path="/" exact >
-            <Entrance />
-          </Route>
-          <Route path="/createroom" exact >
-            <Createroom />
-          </Route>
-          <Route path="/joinroom" exact >
-            <Joinroom />
-          </Route>
-          <Route path="/session/:room" component={Sessionpage} /> 
-          <Route path="/login" exact > 
-            <Login />
-          </Route>
-  {/*         <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
-  {/*          <UserBSession ENDPOINT={ENDPOINT} /> */}
-  {/*         </Route> */}
-        </Switch>
+      <Provider store={store}>
+          <Switch>
+            <Route path="/" exact >
+              <Entrance />
+            </Route>
+            <Route path="/createroom" exact >
+              <Createroom />
+            </Route>
+            <Route path="/joinroom" exact >
+              <Joinroom />
+            </Route>
+            <Route path="/session/:room" component={Sessionpage} /> 
+            <Route path="/login" exact > 
+              <Login />
+            </Route>
+            <Route path="/sounds" exact > 
+              <Test />
+            </Route>
+    {/*         <Route path="/userbsession" exact > {/*"/userbsession/:room" */}
+    {/*          <UserBSession ENDPOINT={ENDPOINT} /> */}
+    {/*         </Route> */}
+          </Switch>
+        </Provider>
       </BrowserRouter>
     </SocketContext.Provider>
   )

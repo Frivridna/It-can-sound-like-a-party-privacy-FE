@@ -1,76 +1,34 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import Form from '../components/Form'
 import { Link } from 'react-router-dom'
-//import socketIOClient from "socket.io-client"
-
-import { SocketContext } from '../service/socket'
-import Createroom from './Createroom'
-import Joinroom from './Joinroom'
 
 const Login = () => {
-  const socket = useContext(SocketContext)
-
-    const dispatch = useDispatch()
-
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-  
-    const onUsernameChange = (event) => {
-      setUsername(event.target.value)
-      console.log(username)
-    }
-  
-    const onPasswordChange = (event) => {
-      setPassword(event.target.value)
-      console.log(password)
-    }
-  
-    const onFormSubmit = (event) => {
-      event.preventDefault()
-      //dispatch(authenticate(username, password))
-    }
-
-
-
-
-  //const ENDPOINT = ENDPOINT
-  //console.log(ENDPOINT)
-  return (
-    <>
-        <h1>Test Login</h1>
-
-        <section className="container">
-      <form className="form" onSubmit={onFormSubmit}>
-        <div>
-          <label>Username</label>
-          <div className="input-field">
-            <input type='text' value={username} onChange={onUsernameChange} />
-          </div>
-        </div>
-        <div>
-          <label>Password</label>
-          <div className="input-field">
-            <input type='password' value={password} onChange={onPasswordChange} />
-          </div>
-        </div>
-        <div className="signin">
-          <button 
-            text='Sign in'
-            type='submit'
-          />
-        </div>
-
-      </form>
-
-    </section>
-
-        <div>
-        <Link to={`/`}>
-          <button type="submit">Back</button>
-        </Link>
-        </div>
-    </>
-  )
+    const accessToken = useSelector(store => store.credentials.accessToken)
+    const history = useHistory()
+    const error = useSelector(store => store.credentials.error)
+    
+    useEffect(() => {
+        if(accessToken) {
+          history.push('/sounds')
+        }
+    }, [accessToken, history])
+    
+    return (
+        <> 
+          <Form />
+          {error !== null && (error.message === 'User not found') && 
+            <div>
+              <p>The username/password combination was not found. </p> 
+              <p>Please try again, or sign up if you don't have an account</p>
+            </div>
+          }
+          <Link to={`/`} >
+            <button>Back</button>
+          </Link>
+        </>
+    )
 }
 
 export default Login

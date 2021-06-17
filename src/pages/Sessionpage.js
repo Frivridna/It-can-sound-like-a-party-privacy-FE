@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { useParams } from "react-router-dom";
-import socketIOClient from 'socket.io-client'
+import React, { useEffect, useContext } from 'react'
+import { useParams } from "react-router-dom"
+//import socketIOClient from 'socket.io-client'
 
 import { SocketContext } from '../service/socket'
+
 const Sessionpage = () => {
   const { room } = useParams();
   //const socket = socketIOClient(ENDPOINT)
@@ -12,7 +13,7 @@ useEffect(() => {
   if (room) {
     socket.emit('join', room);
   }
-}, [room]);
+}, [room, socket]);
 
 
 useEffect(() => {
@@ -26,11 +27,11 @@ useEffect(() => {
     }
     playAudio(data)
   })
-}, [])
+}, [socket])
   
   return (
     <>
-    <h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user. ❤️</h4>
+    <h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user.<span role="img" aria-label="red-heart">❤️</span> </h4>
     <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
     </>
   )
