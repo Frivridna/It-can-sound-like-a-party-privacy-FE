@@ -2,8 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 import { batch } from 'react-redux'
 import { API_URL } from '../reusable/urls'
 
-const initialItems = localStorage.getItem('credentials')
-    ? JSON.parse(localStorage.getItem('credentials'))
+const initialState = localStorage.getItem('credentials')
+    ? {
+        username: JSON.parse(localStorage.getItem('credentials')).username,
+        accessToken: JSON.parse(localStorage.getItem('credentials')).accessToken,
+        error: null //error or errors? 
+    }
     : {
         username: null,
         accessToken: null,
@@ -13,33 +17,15 @@ const initialItems = localStorage.getItem('credentials')
 
 const credentials = createSlice({
     name: 'credentials',
-    initialState: initialItems,
+    initialState,
     reducers: {
         setUsername: (store, action) => {
-            localStorage.setItem('credentials', JSON.stringify({ 
-                username: action.payload, 
-                accessToken: store.accessToken, 
-                error: store.error,
-                secret: store.secret
-            }))
             store.username = action.payload
         },
         setAccessToken: (store, action) => {
-            localStorage.setItem('credentials', JSON.stringify({ 
-                username: store.username, 
-                accessToken: action.payload, 
-                error: store.error,
-                secret: store.secret
-            }))
             store.accessToken = action.payload
         },
         setError: (store, action) => {
-            localStorage.setItem('credentials', JSON.stringify({ 
-                username: store.username, 
-                accessToken: store.accessToken, 
-                error: action.payload,
-                secret: store.secret
-            }))
             store.error = action.payload
         },
         logOut: (store, action) => {
@@ -47,13 +33,16 @@ const credentials = createSlice({
             store.accessToken = null
         },
         setSecret: (store, action) => {
-            console.log(action.payload)
             store.secret = action.payload
+        },
+        setReturnInitialState: () => {
+            return initialState
         }
     }
 })
 
-export const authenticate = (username, password, mode) => {
+// FRÅN HÄR FÅR VI KIKA TILLSAMMANS ! :) 
+/* export const authenticate = (username, password, mode) => {
     return (dispatch, getState) => {
         const state = getState()
         //const method = mode === 'sounds' ? 'GET' : 'POST'
@@ -96,7 +85,7 @@ export const authenticate = (username, password, mode) => {
         })
         .catch()
     }
-}
+} */
 
 export default credentials
 
