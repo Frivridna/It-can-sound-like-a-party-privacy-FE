@@ -32,6 +32,29 @@ useEffect(() => {
   })
 }, [socket])
   
+// old version ! ---> Check the return! :) aka Clean up the useEffect. 
+
+/*
+export const App = () => {
+  const [response, setResponse] = useState(""); // {} receive sound file in a useState react ???? 
+
+  useEffect(() => {
+    const socket = socketIOClient(ENDPOINT);
+    //const socket = io.connect('http://localhost:4001') 
+    socket.on("FromAPI", data => {
+      setResponse(data)
+    });
+    // Clean up the effect
+    return () => socket.disconnect();
+  }, []);
+
+  return (
+    <p>
+    </p>
+  );
+}
+*/
+
   return (
     <>
 {/*     {&& ? <div><h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user.<span role="img" aria-label="red-heart">❤️</span> </h4>

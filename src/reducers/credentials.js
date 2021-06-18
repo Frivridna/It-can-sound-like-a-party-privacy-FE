@@ -1,18 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { batch } from 'react-redux'
-import { API_URL } from '../reusable/urls'
 
 const initialState = localStorage.getItem('credentials')
     ? {
         username: JSON.parse(localStorage.getItem('credentials')).username,
         accessToken: JSON.parse(localStorage.getItem('credentials')).accessToken,
-        error: null //error or errors? 
+        error: null
     }
     : {
         username: null,
         accessToken: null,
         error: null,
-        secret: ''
+        secret: '' //Why do we need this now? 
     }
 
 const credentials = createSlice({
@@ -28,19 +26,20 @@ const credentials = createSlice({
         setError: (store, action) => {
             store.error = action.payload
         },
-        logOut: (store, action) => {
+        logOut: (store, action) => { // borde vara "setlogOut"
             store.username = null
             store.accessToken = null
         },
-        setSecret: (store, action) => {
+        setSecret: (store, action) => { // Do we need this now? 
             store.secret = action.payload
         },
-        setReturnInitialState: () => {
+        setReturnInitialState: () => {  // DEN HÄR GÖR EXAKT SAMMA SAK SOM logOut 
             return initialState
         }
     }
 })
 
+export default credentials
 // FRÅN HÄR FÅR VI KIKA TILLSAMMANS ! :) 
 /* export const authenticate = (username, password, mode) => {
     return (dispatch, getState) => {
@@ -86,8 +85,6 @@ const credentials = createSlice({
         .catch()
     }
 } */
-
-export default credentials
 
 
 

@@ -8,7 +8,6 @@ import { SocketContext, socket } from './service/socket'
 
 import Createroom from './pages/Createroom'
 import Sessionpage from './pages/Sessionpage'
-//import UserBSession from './pages/UserBSession'
 import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
 import Login from './pages/Login'
@@ -18,17 +17,16 @@ import FinishPage from './components/FinishPage'
 //import { ENDPOINT } from './reusable/urls'
 //const socket = socketIOClient(ENDPOINT)
 import credentials from './reducers/credentials'
+import sounds from './reducers/sounds'
 
 const reducer = combineReducers({
-  credentials: credentials.reducer
+  credentials: credentials.reducer,
+  sounds: sounds.reducer
 })
 
 const store = configureStore({ reducer })
 
-
-
 export const App = () => {
- // ENDPOINT={ENDPOINT}
   return (
     <SocketContext.Provider value={socket}>
       <BrowserRouter>
@@ -57,26 +55,3 @@ export const App = () => {
     </SocketContext.Provider>
   )
 }
-
-// old version ! ---> Check the return! :) aka Clean up the useEffect. 
-
-/*
-export const App = () => {
-  const [response, setResponse] = useState(""); // {} receive sound file in a useState react ???? 
-
-  useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-    //const socket = io.connect('http://localhost:4001') 
-    socket.on("FromAPI", data => {
-      setResponse(data)
-    });
-    // Clean up the effect
-    return () => socket.disconnect();
-  }, []);
-
-  return (
-    <p>
-    </p>
-  );
-}
-*/

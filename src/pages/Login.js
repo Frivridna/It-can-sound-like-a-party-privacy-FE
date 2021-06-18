@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import Form from '../components/Form'
 import { Link } from 'react-router-dom'
+
+import Form from '../components/Form'
 
 const Login = () => {
     const accessToken = useSelector(store => store.credentials.accessToken)
-    const history = useHistory()
     const error = useSelector(store => store.credentials.error)
+
+    const history = useHistory()
+    
     
     useEffect(() => {
         if(accessToken) {
@@ -15,6 +18,7 @@ const Login = () => {
         }
     }, [accessToken, history])
     
+
     return (
         <> 
           <Form />

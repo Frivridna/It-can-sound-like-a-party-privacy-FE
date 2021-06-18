@@ -13,10 +13,10 @@ const Entrance = () => {
         <h1>Welcome</h1>
       </div>
       <Link to={`/createroom` } >
-        <button >Create Room</button>
+        <button >CREATE ROOM</button>
       </Link>
       <Link to={`/joinroom`}>
-        <button> Room</button>
+        <button> I HAVE A CODE </button>
       </Link>
       
       <div>
