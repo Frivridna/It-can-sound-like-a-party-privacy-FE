@@ -6,7 +6,7 @@ import { API_URL } from '../reusable/urls'
 import credentials from '../reducers/credentials'
 import sounds from '../reducers/sounds'
 
-const Test = () => { // -------> RENAME this to Sounds.js and remember to rename it wherever it has been imported ! 
+const Sounds = () => { // -------> RENAME this to Sounds.js and remember to rename it wherever it has been imported ! 
     const [newName, setNewName] = useState('')
     const [newUrl, setNewUrl] = useState('')
     const [newDescription, setNewDescription] = useState('')
@@ -146,4 +146,4 @@ const Test = () => { // -------> RENAME this to Sounds.js and remember to rename
         )
     }
 
-export default Test
+export default Sounds

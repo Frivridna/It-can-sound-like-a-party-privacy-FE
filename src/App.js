@@ -11,7 +11,7 @@ import Sessionpage from './pages/Sessionpage'
 import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
 import Login from './pages/Login'
-import Test from './pages/Test'
+import Sounds from './pages/Sounds'
 import FinishPage from './components/FinishPage'
 
 //import { ENDPOINT } from './reusable/urls'
@@ -46,7 +46,7 @@ export const App = () => {
               <Login />
             </Route>
             <Route path="/sounds" exact > 
-              <Test />
+              <Sounds />
             </Route>
             <Route path="/goodbye" component={FinishPage} />
           </Switch>
