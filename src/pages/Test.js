@@ -10,10 +10,11 @@ const Test = () => { // -------> RENAME this to Sounds.js and remember to rename
     const [newName, setNewName] = useState('')
     const [newUrl, setNewUrl] = useState('')
     const [newDescription, setNewDescription] = useState('')
+    //const [newsoundsList, setNewSoundsList] = useState([])
 
     const accessToken = useSelector(store => store.credentials.accessToken)
     const username = useSelector(store => store.credentials.username)
-    const soundsList = useSelector(store => store.sounds.items) // ÄNDRA HÄR store.sounds.items? 
+    const soundsList = useSelector(store => store.sounds.items)
     console.log(soundsList)
 
     const history = useHistory()
@@ -37,16 +38,15 @@ const Test = () => { // -------> RENAME this to Sounds.js and remember to rename
         fetch(API_URL('sounds'), options)
             .then(res => res.json())
             .then(data => {
-                if (data.statusCode === 200) { //.success // .status 
+                console.log(data)
+                // if (data) { //.success // .status 
                     batch(() => {
-                        dispatch(sounds.actions.setSounds(data.name))
-                        dispatch(sounds.actions.setSounds(data.url))
-                        dispatch(sounds.actions.setSounds(data.description))
+                        dispatch(sounds.actions.setSounds(data))
                         dispatch(sounds.actions.setError(null))
                     })
-                } else {
+                /* } else {
                     dispatch(sounds.actions.setError(data))
-                }
+                } */
             })
         }, [accessToken, dispatch])
     
@@ -74,16 +74,14 @@ const Test = () => { // -------> RENAME this to Sounds.js and remember to rename
         fetch(API_URL('sounds'), options)
             .then((res) => res.json())
             .then((data) => {
-                if (data.success) {
+                // if (data.success) {
                 batch(() => {
-                    dispatch(sounds.actions.setSounds(data.name)) // is it supposed to be sounds here? NO ? or items*
-                    dispatch(sounds.actions.setSounds(data.url))
-                    dispatch(sounds.actions.setSounds(data.description))
+                    dispatch(sounds.actions.setSounds(data))
                     dispatch(sounds.actions.setError(null))
                 })
-                } else {
+                /* } else {
                     dispatch(sounds.actions.setError(data))
-                }
+                } */
             })
             setNewUrl('')
             setNewName('')
@@ -94,7 +92,7 @@ const Test = () => { // -------> RENAME this to Sounds.js and remember to rename
             dispatch(credentials.actions.logOut())
             localStorage.clear()
         }
-
+                        // MAKE SMALL CARDS for the audiofiles that has a button to DELETE THEM ** 
         return (
             <>           
             <h2>Testsida</h2>
@@ -129,13 +127,15 @@ const Test = () => { // -------> RENAME this to Sounds.js and remember to rename
                         </textarea>
                         <button type="submit">Post a new sound</button>
                         </form>
-{/*                          {soundsList.map(sound => {
+                          {(soundsList.length > 1) && soundsList.map(sound => {
                             return (
                             <div className="thoughts-container" key={sound._id}>
                             <p>{sound.name}</p>
+                            <p>{sound.url}</p>
+                            <p>{sound.description}</p>
                             </div>
                             )
-                        })} */}
+                        })}
                         <button
                             type='button'
                             onClick={onLogOut}
