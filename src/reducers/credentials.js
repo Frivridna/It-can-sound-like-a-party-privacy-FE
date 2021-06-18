@@ -81,6 +81,7 @@ export const authenticate = (username, password, mode) => {
                     batch(() => {
                         dispatch(credentials.actions.setSecret(data.message))
                         dispatch(credentials.actions.setError(null))
+                        //if sounds a third dispatch here
                     })
                 } else {
                     batch(() => {

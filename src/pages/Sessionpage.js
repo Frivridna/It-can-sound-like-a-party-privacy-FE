@@ -34,13 +34,13 @@ useEffect(() => {
   
   return (
     <>
-    {&& ? <div><h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user.<span role="img" aria-label="red-heart">❤️</span> </h4>
+{/*     {&& ? <div><h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user.<span role="img" aria-label="red-heart">❤️</span> </h4>
     <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
-    <img className="image" src="../assets/Headphones.svg" alt="headphones" /> </div> : <FinishPage /> }
+    <img className="image" src="../assets/Headphones.svg" alt="headphones" /> </div> : <FinishPage /> } */}
     <h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user.<span role="img" aria-label="red-heart">❤️</span> </h4>
     <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
     <img className="image" src="../assets/Headphones.svg" alt="headphones" /> 
-{/*     <FinishPage /> */}
+    <FinishPage />
     </>
   )
 }

@@ -12,6 +12,7 @@ const Test = () => {
 
 
     useEffect(()=> {
+        dispatch(authenticate( null, null, 'sounds'))
         fetch("http://localhost:4001/sounds")
         .then(res => res.json())
         .then(data => setAudio(data))
@@ -34,8 +35,6 @@ const Test = () => {
         dispatch(credentials.actions.logOut())
         localStorage.clear()
     }
-    
-    dispatch(authenticate( null, null, 'sounds'))
 
     return (
         <> 
