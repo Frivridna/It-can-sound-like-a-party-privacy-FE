@@ -12,6 +12,7 @@ import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
 import Login from './pages/Login'
 import Sounds from './pages/Sounds'
+import Start from './pages/Startpage'
 import FinishPage from './components/FinishPage'
 
 //import { ENDPOINT } from './reusable/urls'
@@ -32,7 +33,10 @@ export const App = () => {
       <BrowserRouter>
       <Provider store={store}>
           <Switch>
-            <Route path="/" exact >
+          <Route path="/" exact >
+              <Start />
+            </Route>
+            <Route path="/entrance" exact >
               <Entrance />
             </Route>
             <Route path="/createroom" exact >

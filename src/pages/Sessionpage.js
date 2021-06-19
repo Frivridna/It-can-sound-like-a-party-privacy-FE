@@ -6,36 +6,35 @@ import { SocketContext } from '../service/socket'
 import FinishPage from 'components/FinishPage'
 
 const Sessionpage = () => {
-  const { room } = useParams();
+  const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
-
   //const socket = socketIOClient(ENDPOINT)
   const socket = useContext(SocketContext)
 
-useEffect(() => {
-  if (room) {
-    socket.emit('join', room);
-  }
-}, [room, socket])
+  useEffect(() => {
+    if (room) {
+      socket.emit('join', room);
+    }
+  }, [room, socket])
 
-let audio 
+  let audio 
 
-useEffect(() => {
-  socket.on('join', data => {
-    console.log('File received', data)
-    const playAudio = (data) => {
-      if (data) {
-        audio = new Audio(data)
-        setTimeout(() => {audio.play(data)}, 4000) 
+  useEffect(() => {
+    socket.on('join', data => {
+      console.log('File received', data)
+      const playAudio = (data) => {
+        if (data) {
+          audio = new Audio(data)
+          setTimeout(() => {audio.play(data)}, 4000) 
+        }
       }
-    }
-    playAudio(data)
-    audio.onended = (data) => {
-      console.log('Sound ended')
-      setAudioEnded(true)
-    }
-  })
-}, [socket])
+      playAudio(data)
+      audio.onended = (data) => {
+        console.log('Sound ended')
+        setAudioEnded(true)
+      }
+    })
+  }, [socket])
   
 // old version ! ---> Check the return! :) aka Clean up the useEffect. 
 

@@ -7,10 +7,10 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  text-rendering: optimizeLegibility;
   font-family: 'Inter', sans-serif;
   background-color: #191919;
-  color: #fff;
+  color: #f9f7f5;
 }
 
 code {

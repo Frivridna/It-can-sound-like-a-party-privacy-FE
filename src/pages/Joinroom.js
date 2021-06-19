@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 //import socketIOClient from "socket.io-client"
-
 import { SocketContext } from '../service/socket'
+
+import { Button } from '../styles/GlobalStyles'
+import Joinroomcss from '../styles/Joinroom.css'
+
 const Joinroom = () => {
   //const socket = socketIOClient(ENDPOINT)
   const socket = useContext(SocketContext)
@@ -12,13 +15,20 @@ const Joinroom = () => {
     socket.emit('join', existingRoom);
   }
   return (
-    <>
-      <input value={existingRoom} onChange={e => setExistingRoom(e.target.value)} />
-      <Link to={`/session/${existingRoom}`} >
-      <button onClick={onRoomJoin}>Join room</button>
-      </Link>
+    <section className="join-room-container">
+      <div className="user-input">
+        <input 
+          className="room-code-input" 
+          value={existingRoom} 
+          onChange={e => setExistingRoom(e.target.value)} 
+          placeholder="Write your code here"
+        />
+        <Link to={`/session/${existingRoom}`} >
+        <Button onClick={onRoomJoin}>JOIN ROOM</Button>
+        </Link>
+      </div>
       
-    </>
+    </section>
     
   )
 }
