@@ -32,7 +32,7 @@ const Entrance = () => {
               <p>Use your mobile phone</p>
               <p>Wear over ear</p>
               {/* <p>over ear Headphones</p> */}
-              <img className="headphone-image" src="../assets/Headphones.svg" alt="headphones" /> 
+              <img className="headphone-image" src="../assets/Headphones.svg" alt="over ear headphones" /> 
               <div className="informational-text">
                 <p>Listen. Shh.</p>
                 <p>Don't look, just listen.</p>
