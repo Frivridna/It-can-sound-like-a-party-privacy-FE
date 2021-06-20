@@ -68,7 +68,7 @@ export const App = () => {
         <div>
           {(audioEnded) ? 
             <div>
-              <h2>Sound ended aka --> <FinishPage /></h2>
+              <h2>Sound ended aka <FinishPage /></h2>
             </div> : 
             <div className="listening-instructions-container">
                 <img className="image" src="../assets/Headphones.svg" alt="headphones" />
