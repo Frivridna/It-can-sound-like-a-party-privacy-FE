@@ -28,9 +28,9 @@ const Login = () => {
               <p>Please try again, or sign up if you don't have an account</p>
             </div>
           }
-          <Link to={`/`} >
+          {/* <Link to={`/entrance`} >
             <button>Back</button>
-          </Link>
+          </Link> */}
         </>
     )
 }

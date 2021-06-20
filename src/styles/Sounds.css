@@ -1,0 +1,35 @@
+.sound-input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.text-label{
+  display: flex;
+  justify-content: center;
+  width: 140px;
+}
+
+
+.description {
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 45%);
+  height: 60px;
+  padding: 10px;
+  margin: 10px auto 5px;
+  resize: none;
+}
+
+.sound-input {
+
+  background: none; 
+  border: none;
+  border-bottom: 1px solid #f9f7f5;
+  color: #f9f7f5;
+  width: 140px;
+}
+
+.input-field {
+  display: flex;
+  justify-content: center;
+}

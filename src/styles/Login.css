@@ -1,0 +1,23 @@
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+}
+
+.label-text {
+    /* display:flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.input-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box {
+    margin-bottom: 15px;
+    width: 150px
+}

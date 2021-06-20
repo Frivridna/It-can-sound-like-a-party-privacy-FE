@@ -1,9 +1,8 @@
 .room-code {
-  color:  #f9f7f5; /* #dbb6b8*/
+  color:  #f9f7f5;
   text-align: center;
   padding: 5px 0px;
   margin: 0px;
-  /*height:40px*/
 }
 
 .big-container {
@@ -22,50 +21,44 @@
       padding: 0px;
 }
 
+.code-placeholder-text {
+  width:150px;
+
+  border-radius: 10px;
+  padding: 0px;
+  margin-bottom: 15px;
+}
+
 .small-container {
-    margin-top: 40px; 
+    /* margin-top: 40px;  */
     height: 20vh;
 }
 
 .room-code-box {
-    /* --borderWidth: 1px;
-    background: #1D1F20;
-    position: relative;
-    border-radius: 12px var(--borderWidth); */
     border-radius: 12px solid #f9f7f5;
     display:flex;
     justify-content: center;
     align-items: center;
-
-    
   }
 
   .room-code-box:after {
     border-radius: 12px solid #f9f7f5;
   }
 
-/* .room-code-box:after {
-    content: '';
-    position: absolute;
-    top: calc(-1 * var(--borderWidth));
-    left: calc(-1 * var(--borderWidth));
-    height: calc(100% + var(--borderWidth) * 2);
-    width: calc(100% + var(--borderWidth) * 2);
-    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-    border-radius: calc(2 * var(--borderWidth));
-    z-index: -1;
-    animation: animatedgradient 3s ease alternate infinite;
-    background-size: 300% 300%;
-  } */
+  .text-to-enter {
+    text-align: center;
+  }
 
-/*   @keyframes animatedgradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-} */
+  .enter-world {
+    margin-top: 10px;
+     display: flex; 
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column; 
+
+  }
+
+  .arrow {
+    height: 30px;
+    margin-top: 50px;
+}

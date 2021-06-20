@@ -6,3 +6,5 @@ export const ENDPOINT = "http://localhost:4001"
 export const BASE_URL = "http://localhost:4001/"
 
 export const API_URL = (slug) => `${BASE_URL}${slug}`
+
+export const DELETE_URL = (_id) => `http://localhost:4001/sounds/${_id}`

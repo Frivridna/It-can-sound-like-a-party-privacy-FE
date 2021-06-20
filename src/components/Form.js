@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, batch } from 'react-redux'
 
 import { API_URL } from '../reusable/urls'
 import credentials from '../reducers/credentials' // , { authenticate } 
+import Login from '../styles/Login.css'
+import { Button} from '../styles/GlobalStyles'
 
 const Form = () => {
   const [username, setUsername] = useState('')
@@ -54,11 +57,72 @@ const Form = () => {
   }
 
   return (
-    <section >
+    <section className="form-section">
+      <form onSubmit={onFormSubmit} className="form">
+
+        <div className="input-container">
+        <div className="input-box">
+          <label className="label-text">Username</label>
+          <div className="user-input">
+            <input 
+              className="room-code-input"
+              type='text'
+              value={username} 
+              onChange={onUsernameChange} 
+              placeholder="Username"
+            />
+          </div>
+        </div>
+        </div>
+
+        <div className="input-container"> 
+        <div className="input-box">
+          <label className="label-text">Password</label>
+          <div className="user-input">
+            <input 
+            className="room-code-input"
+              type='password' 
+              value={password} 
+              onChange={onPasswordChange} 
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        </div>
+
+
+        <div>
+          <Button
+            type='submit'
+            onClick={() => setMode('signin')}
+          >Sign in
+          </Button>
+        </div>
+        <Link to={`/entrance`} >
+            <Button>Back</Button>
+        </Link>
+      </form>
+
+    </section>
+  )
+}
+
+export default Form
+
+
+
+
+
+
+/*
+
+<section >
       <form onSubmit={onFormSubmit}>
         <div>
           <label>Username</label>
           <div >
+
+            
             <input 
               type='text'
               value={username} 
@@ -86,7 +150,6 @@ const Form = () => {
       </form>
 
     </section>
-  )
-}
 
-export default Form
+
+*/
