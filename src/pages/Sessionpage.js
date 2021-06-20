@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom"
 
 import { SocketContext } from '../service/socket'
 import FinishPage from 'components/FinishPage'
+import Startpage from 'pages/Startpage'
 
 const Sessionpage = () => {
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
+  const [status, setStatus] = useState('')
   //const socket = socketIOClient(ENDPOINT)
   const socket = useContext(SocketContext)
 
@@ -22,6 +24,7 @@ const Sessionpage = () => {
   useEffect(() => {
     socket.on('join', data => {
       console.log('File received', data)
+      setStatus(data)
       const playAudio = (data) => {
         if (data) {
           audio = new Audio(data)
@@ -60,11 +63,14 @@ export const App = () => {
 */
   return (
     <>
-    {(audioEnded) ? <div><h2>Sound ended</h2></div>: <div><h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user.<span role="img" aria-label="red-heart">❤️</span> </h4>
-    <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
-    <img className="image" src="../assets/Headphones.svg" alt="headphones" /></div>}
-
-    <FinishPage />
+        {(status === 'Room is full') ? <Startpage status={status}/> : 
+        <div>
+          {(audioEnded) ? <div><h2>Sound ended</h2></div>: <div><h4>Please do not turn on sleep mode on your screen, nor shut the application down, it will disturb your connection to the other user.<span role="img" aria-label="red-heart">❤️</span> </h4>
+        <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3>
+          <img className="image" src="../assets/Headphones.svg" alt="headphones" /></div>}
+        </div>
+      }
+      <FinishPage />
     </>
   )
 }

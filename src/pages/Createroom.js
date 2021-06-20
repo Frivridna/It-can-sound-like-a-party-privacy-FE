@@ -9,9 +9,6 @@ import { Button, HeaderThree, Container } from '../styles/GlobalStyles'
 //import { SocketContext } from '../service/socket'
 //import socketIOClient from 'socket.io-client'
 
-
-
-
 const Createroom = () => {
  
   const [room, setRoom] = useState('')
@@ -25,12 +22,11 @@ const Createroom = () => {
       <section className="big-container"> 
       <HeaderThree>Press to generate room code</HeaderThree>
       <Button onClick={onRoomCreate}>GENERATE</Button>
-
-        <div className="code-placeholder">
+        {room && <div className="code-placeholder">
           <div className="room-code-box">
           <p className="room-code">{room}</p>
           </div>
-        </div>
+        </div>}
 
       <Link to={`/session/${room}`} >
         <Button>ENTER THE WORLD</Button>

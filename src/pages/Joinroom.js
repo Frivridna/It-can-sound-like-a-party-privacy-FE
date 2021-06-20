@@ -5,15 +5,17 @@ import { SocketContext } from '../service/socket'
 
 import { Button } from '../styles/GlobalStyles'
 import Joinroomcss from '../styles/Joinroom.css'
+import StatusMessage from '../components/StatusMessage'
 
 const Joinroom = () => {
   //const socket = socketIOClient(ENDPOINT)
   const socket = useContext(SocketContext)
-  const [existingRoom, setExistingRoom] = useState('');
+  const [existingRoom, setExistingRoom] = useState('')
 
   const onRoomJoin = () => {
-    socket.emit('join', existingRoom);
+    socket.emit('join', existingRoom) 
   }
+
   return (
     <section className="join-room-container">
       <div className="user-input">
@@ -26,10 +28,11 @@ const Joinroom = () => {
         <Link to={`/session/${existingRoom}`} >
         <Button onClick={onRoomJoin}>JOIN ROOM</Button>
         </Link>
+        <Link to={`/entrance`} >
+        <Button>GO BACK</Button>
+        </Link>
       </div>
-      
     </section>
-    
   )
 }
 

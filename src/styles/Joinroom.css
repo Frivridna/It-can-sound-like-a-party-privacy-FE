@@ -2,6 +2,8 @@
   background: none; 
   border: none;
   border-bottom: 1px solid #f9f7f5;
+  color: #f9f7f5;
+  width: 140px;
 }
 
 .join-room-container {
