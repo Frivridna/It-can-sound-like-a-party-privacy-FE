@@ -20,9 +20,8 @@ const Sessionpage = () => {
     }
   }, [room, socket])
 
-  let audio 
-
   useEffect(() => {
+    let audio
     socket.on('join', data => {
       console.log('File received', data)
       setStatus(data)
