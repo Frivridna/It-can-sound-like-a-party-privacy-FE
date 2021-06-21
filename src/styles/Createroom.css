@@ -30,7 +30,6 @@
 }
 
 .small-container {
-    /* margin-top: 40px;  */
     height: 20vh;
 }
 
@@ -41,24 +40,35 @@
     align-items: center;
   }
 
-  .room-code-box:after {
-    border-radius: 12px solid #f9f7f5;
-  }
+.room-code-box:after {
+  border-radius: 12px solid #f9f7f5;
+}
 
-  .text-to-enter {
-    text-align: center;
-  }
+.text-to-enter {
+  text-align: center;
+}
 
-  .enter-world {
-    margin-top: 10px;
-     display: flex; 
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column; 
+.enter-world {
+  margin-top: 10px;
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  flex-direction: column; 
+}
 
-  }
+.arrow-down-container {
+  animation: bounce 1600ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  cursor: pointer;
+}
 
-  .arrow {
+.arrow {
     height: 30px;
     margin-top: 50px;
 }
+
+@keyframes bounce {
+  50% {
+      transform: translateY(-15px);
+    }
+  }
+  

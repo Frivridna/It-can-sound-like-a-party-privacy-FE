@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import Paper from '@material-ui/core/Paper'
 
 const Background = styled.div`
   display: flex;
@@ -28,8 +27,6 @@ const FinishPage = () => {
   return (
     <>
     <Background>
-      <Paper elevation={3} />
-      Default with elevation 3
         <Button>DO THE EXPERIENCE AGAIN</Button>
         <Button>ABOUT</Button>
         <Button>SHARE</Button>

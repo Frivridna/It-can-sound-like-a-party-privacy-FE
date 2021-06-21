@@ -104,6 +104,8 @@
 }
 
 .error-popup {
+  margin: 38px 5px;
+  letter-spacing: 1px;
   color: #c74c4f; 
   font-size: 14px;
   font-weight: 500;

@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import uniqid from 'uniqid';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import uniqid from 'uniqid'
 
 import Createroomcss from '../styles/Createroom.css'
 import { Button, HeaderThree, Container } from '../styles/GlobalStyles'
-//import { SocketContext } from '../service/socket'
-//import socketIOClient from 'socket.io-client'
 
 const Createroom = () => {
  
@@ -38,7 +34,9 @@ const Createroom = () => {
 
       {room &&  
       <div className="enter-world">
-        <img className="arrow"src="../assets/arrow.png" alt="arrow" />   
+        <div className="arrow-down-container">
+          <img className="arrow"src="../assets/arrow.png" alt="arrow" />
+        </div>
         <Link to={`/session/${room}`} >
           <Button>ENTER THE WORLD</Button>
         </Link>
