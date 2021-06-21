@@ -3,25 +3,23 @@
   justify-content: center;
 }
 
-.text-label{
-  display: flex;
-  justify-content: center;
-  width: 140px;
+
+
+.name-input-section{
+  margin-bottom: 20px;
 }
 
 
 .description {
-  display: flex;
-  justify-content: center;
-  width: calc(100% - 45%);
+  width: calc(100% - 10%);
   height: 60px;
   padding: 10px;
   margin: 10px auto 5px;
   resize: none;
+  background-color: #f9f7f5;
 }
 
 .sound-input {
-
   background: none; 
   border: none;
   border-bottom: 1px solid #f9f7f5;
@@ -29,7 +27,53 @@
   width: 140px;
 }
 
-.input-field {
+.our-sounds {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* .input-field {
+  display: flex;
+  justify-content: center;
+} */
+
+.sound-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.logout-button {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+/*  */
+.sound-delete-container {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sound-delete-container p{
+  flex-wrap: wrap;
+}
+
+.delete-button {
+  background-color: #191919;
+  color: #f9f7f5;
+  border: 2px solid #f9f7f5;
+  border-radius: 10px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  width: 150px;
+  padding: 10px 0px
+}
+
+.card-text {
+  margin: 0px;
+  padding: 10px 0px;
 }

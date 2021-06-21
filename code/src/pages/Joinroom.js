@@ -13,6 +13,8 @@ const Joinroom = () => {
     socket.emit('join', existingRoom) 
   }
 
+  console.log(existingRoom.length)
+
   return (
     <section className="join-room-container">
       <div className="user-input">
@@ -22,9 +24,13 @@ const Joinroom = () => {
           onChange={e => setExistingRoom(e.target.value)} 
           placeholder="Write your code here"
         />
-        <Link to={`/session/${existingRoom}`} >
-        <Button onClick={onRoomJoin}>JOIN ROOM</Button>
-        </Link>
+        {(existingRoom.length < 1) ? 
+        <Button  disabled><p className="disabled-button">ENTER CODE</p></Button>
+        :         
+          <Link to={`/session/${existingRoom}`} >
+          <Button onClick={onRoomJoin}>JOIN ROOM</Button>
+          </Link>
+        }
         <Link to={`/entrance`} >
         <Button>GO BACK</Button>
         </Link>

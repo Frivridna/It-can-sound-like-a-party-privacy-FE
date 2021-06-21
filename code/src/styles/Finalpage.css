@@ -1,0 +1,30 @@
+.final-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.final-page-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.abount-content {
+    border: 2px solid white;
+    padding: 20px
+}
+
+.about-button {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}

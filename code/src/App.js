@@ -12,6 +12,7 @@ import Login from './pages/Login'
 import Sounds from './pages/Sounds'
 import Start from './pages/Startpage'
 import FinishPage from './pages/FinishPage'
+import About from './pages/About'
 
 import credentials from './reducers/credentials'
 import sounds from './reducers/sounds'
@@ -29,14 +30,15 @@ export const App = () => {
       <BrowserRouter>
       <Provider store={store}>
           <Switch>
-          <Route path="/" component={Start} />
-            <Route path="/entrance" component={Entrance} />
-            <Route path="/createroom" component={Createroom} />
-            <Route path="/joinroom" component={Joinroom} />
-            <Route path="/session/:room" component={Sessionpage} /> 
-            <Route path="/login" component={Login} /> 
-            <Route path="/sounds" component={Sounds} /> 
-            <Route path="/goodbye" component={FinishPage} />
+            <Route path="/" exact component={Start} />
+            <Route path="/entrance" exact component={Entrance} />
+            <Route path="/createroom" exact component={Createroom} />
+            <Route path="/joinroom" exact component={Joinroom} />
+            <Route path="/session/:room" exact component={Sessionpage} /> 
+            <Route path="/login" exact component={Login} /> 
+            <Route path="/sounds" exact component={Sounds} /> 
+            <Route path="/goodbye" exact component={FinishPage} />
+            <Route path="/about" exact component={About} />
           </Switch>
         </Provider>
       </BrowserRouter>

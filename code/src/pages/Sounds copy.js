@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch, batch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components/macro'
 
 import { API_URL, DELETE_URL } from '../reusable/urls'
 import credentials from '../reducers/credentials'
 import sounds from '../reducers/sounds'
 import '../styles/Sounds.css'
 import { Button } from '../styles/GlobalStyles'
-import { Card } from '../components/Card'
-
 
 const Sounds = () => {
     const [newName, setNewName] = useState('')
@@ -120,14 +117,10 @@ const Sounds = () => {
             <>           
                 <section className="sound-input-container">
                     <div>
-                        <div >
-                            <h2 className="text-label">ADMIN PAGE</h2>
-                        </div>
-                        <div>
-                            <h3 className="text-label">Welcome {username}</h3>
-                        </div>
+                        <h2 className="text-label">Testsida</h2>
+                        <h3 className="text-label">Welcome {username}</h3>
                         <form onSubmit={onFormSubmit}>
-                            <div className="name-input-section">
+                            <div>
                                 <div>
                                     <label className="text-label" htmlFor="newSound">NAME</label>
                                 </div>
@@ -140,10 +133,11 @@ const Sounds = () => {
                                     placeholder="Post the title" />
                                 </div>
                             </div>
-                            <div className="name-input-section">
+                            <div>
                                 <label className="text-label">URL</label>
                                 <div className="input-field">
                                     <input
+                                    //id="newSound"
                                     className="sound-input"
                                     type="text"
                                     value={newUrl}
@@ -151,13 +145,14 @@ const Sounds = () => {
                                     placeholder="Post the URL" />
                                 </div>
                             </div>
-                            <div >
+                            <div>
                                 <label className="text-label">DESCRIPTION</label>
                                 <div>
                                     <textarea 
                                         className="description"
                                         resize="none"
                                         maxLength="150"
+                                        id="newSound"
                                         type="text"
                                         value={newDescription}
                                         onChange={onNewDescriptionChange}
@@ -169,43 +164,30 @@ const Sounds = () => {
                         </form>
                     </div>
                  </section> {/*Indentation done above */}
-                <div className="our-sounds">
-                        {(soundsList.length > 1) && soundsList.map(sound => {
-                        return (
+
+                          {(soundsList.length > 1) && soundsList.map(sound => {
+                            return (
                             <div className="sound-container" key={sound._id}>
-                                <Card
-                                    title={sound.name}
-                                    url={sound.url}
-                                    description={sound.description}
-                                >
-                                <button 
-                                    tabIndex='0'
-                                    aria-pressed='false'
-                                    aria-label='Remove a sound'
-                                    className='delete-button'
-                                    onClick={() => onDeleteSound(sound._id)}>DELETE
-                                </button>
-                                        {/* Child content here!  */}
-                                      </Card>
-{/*                                 <div  className="sound-delete-container" >
+                                <div className="sound-delete-container">
                                     <p>{sound.name}</p>
                                     <p>{sound.url}</p>
-                                    <p>{sound.description}</p> */}
-                                   
-                                {/* </div> */}
+                                    <p>{sound.description}</p>
+                                    <button 
+                                        tabIndex='0'
+                                        aria-pressed='false'
+                                        aria-label='Remove a sound'
+                                        className='delete-button'
+                                        onClick={() => onDeleteSound(sound._id)}>Delete x</button>
+                                </div>
                             </div>
-                        )
+                            )
                         })}
-                        <div className="logout-button">
-                            <Button
-                                type='button'
-                                onClick={onLogOut}
-                                
-                            >
-                                Log out
-                            </Button>
-                        </div>
-                </div>
+                        <button
+                            type='button'
+                            onClick={onLogOut}
+                        >
+                        Log out
+                        </button>
             </>
         )
     }

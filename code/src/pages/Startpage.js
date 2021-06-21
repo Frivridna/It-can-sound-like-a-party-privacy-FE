@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import '../styles/Startpage.css'
+import '../styles/Createroom.css'
+
 import StatusMessage from '../components/StatusMessage'
 
 const Startpage = ({ status }) => {

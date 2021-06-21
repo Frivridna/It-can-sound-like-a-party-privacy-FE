@@ -7,10 +7,12 @@ import { Button, HeaderThree, Container } from '../styles/GlobalStyles'
 
 const Createroom = () => {
  
+
   const [room, setRoom] = useState('')
 
   const onRoomCreate = () => {
     setRoom(uniqid())
+
   }
   
   return (
