@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 
 import { SocketContext } from '../service/socket'
 
-import FinishPage from 'components/FinishPage'
+import FinishPage from 'pages/FinishPage'
 import Startpage from 'pages/Startpage'
 import '../styles/Sessionpage.css'
 

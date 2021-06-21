@@ -11,7 +11,7 @@ import Joinroom from './pages/Joinroom'
 import Login from './pages/Login'
 import Sounds from './pages/Sounds'
 import Start from './pages/Startpage'
-import FinishPage from './components/FinishPage'
+import FinishPage from './pages/FinishPage'
 
 import credentials from './reducers/credentials'
 import sounds from './reducers/sounds'
@@ -29,25 +29,13 @@ export const App = () => {
       <BrowserRouter>
       <Provider store={store}>
           <Switch>
-          <Route path="/" exact >
-              <Start />
-            </Route>
-            <Route path="/entrance" exact >
-              <Entrance />
-            </Route>
-            <Route path="/createroom" exact >
-              <Createroom />
-            </Route>
-            <Route path="/joinroom" exact >
-              <Joinroom />
-            </Route>
+          <Route path="/" component={Start} />
+            <Route path="/entrance" component={Entrance} />
+            <Route path="/createroom" component={Createroom} />
+            <Route path="/joinroom" component={Joinroom} />
             <Route path="/session/:room" component={Sessionpage} /> 
-            <Route path="/login" exact > 
-              <Login />
-            </Route>
-            <Route path="/sounds" exact > 
-              <Sounds />
-            </Route>
+            <Route path="/login" component={Login} /> 
+            <Route path="/sounds" component={Sounds} /> 
             <Route path="/goodbye" component={FinishPage} />
           </Switch>
         </Provider>

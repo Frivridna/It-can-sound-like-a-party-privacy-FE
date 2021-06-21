@@ -39,15 +39,15 @@ const Sounds = () => {
         fetch(API_URL('sounds'), options)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                // if (data) { //.success // .status 
+                console.log('sounds GET', data)
+                if (data.success) {
                     batch(() => {
-                        dispatch(sounds.actions.setSounds(data))
+                        dispatch(sounds.actions.setSounds(data.data))
                         dispatch(sounds.actions.setError(null))
                     })
-                /* } else {
-                    dispatch(sounds.actions.setError(data))
-                } */
+                 } else {
+                    dispatch(sounds.actions.setError(data.error))
+                }
             })
         }, [accessToken, dispatch])
     
@@ -75,14 +75,15 @@ const Sounds = () => {
         fetch(API_URL('sounds'), options)
             .then((res) => res.json())
             .then((data) => {
-                // if (data.success) {
+                console.log('sounds POST', data)
+                 if (data.success) {
                 batch(() => {
-                    dispatch(sounds.actions.setSounds(data))
+                    dispatch(sounds.actions.setSounds(data.data))
                     dispatch(sounds.actions.setError(null))
                 })
-                /* } else {
-                    dispatch(sounds.actions.setError(data))
-                } */
+                } else {
+                    dispatch(sounds.actions.setError(data.error))
+                }
             })
             setNewUrl('')
             setNewName('')
@@ -171,8 +172,6 @@ const Sounds = () => {
 </div>
 
                 </section>
-
-
 
                           {(soundsList.length > 1) && soundsList.map(sound => {
                             return (
