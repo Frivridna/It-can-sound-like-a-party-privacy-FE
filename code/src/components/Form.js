@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, batch } from 'react-redux'
 
 import { API_URL } from '../reusable/urls'
-import credentials from '../reducers/credentials' // , { authenticate } 
+import credentials from '../reducers/credentials'
 import Login from '../styles/Login.css'
 import { Button} from '../styles/GlobalStyles'
 
@@ -23,9 +23,6 @@ const Form = () => {
     setPassword(e.target.value)
   }
 
-  // INSIDE OF onFormSubmit earlier: 
-  //     dispatch(authenticate(username, password, mode))
-  //  console.log("test")
   const onFormSubmit = (e) => {
     e.preventDefault()
     const options = {
@@ -34,7 +31,7 @@ const Form = () => {
       body: JSON.stringify({ username, password })
     }
 
-    fetch(API_URL(mode), options) // signin / login OOOOOOR mode here? 
+    fetch(API_URL(mode), options)
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -108,48 +105,3 @@ const Form = () => {
 }
 
 export default Form
-
-
-
-
-
-
-/*
-
-<section >
-      <form onSubmit={onFormSubmit}>
-        <div>
-          <label>Username</label>
-          <div >
-
-            
-            <input 
-              type='text'
-              value={username} 
-              onChange={onUsernameChange} 
-            />
-          </div>
-        </div>
-        <div>
-          <label>Password</label>
-          <div>
-            <input 
-              type='password' 
-              value={password} 
-              onChange={onPasswordChange} 
-            />
-          </div>
-        </div>
-        <div>
-          <button
-            type='submit'
-            onClick={() => setMode('signin')}
-          >Sign in
-          </button>
-        </div>
-      </form>
-
-    </section>
-
-
-*/

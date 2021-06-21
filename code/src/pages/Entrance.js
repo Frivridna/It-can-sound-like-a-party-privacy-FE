@@ -1,12 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-//import { SocketContext } from '../service/socket'
 
 import Entrancecss from '../styles/Entrance.css'
 import { Button } from '../styles/GlobalStyles'
 
 const Entrance = () => {
-  //const socket = useContext(SocketContext)
   
   return (
     <section className="entrance-container">
@@ -31,12 +29,10 @@ const Entrance = () => {
               <p>For the best experience:</p>
               <p>Use your mobile phone</p>
               <p>Wear over ear</p>
-              {/* <p>over ear Headphones</p> */}
               <img className="headphone-image" src="../assets/Headphones.svg" alt="over ear headphones" /> 
               <div className="informational-text">
                 <p>Listen. Shh.</p>
                 <p>Don't look, just listen.</p>
-{/*                 <p>ADD Closed eyes clean image here!</p> */}
               </div>
             </div>
             <div className="buttons">

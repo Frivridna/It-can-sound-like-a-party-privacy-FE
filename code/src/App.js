@@ -2,8 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-//import socketIOClient from "socket.io-client"
-//import io from 'socket.io-client'
 import { SocketContext, socket } from './service/socket'
 
 import Createroom from './pages/Createroom'
@@ -15,8 +13,6 @@ import Sounds from './pages/Sounds'
 import Start from './pages/Startpage'
 import FinishPage from './components/FinishPage'
 
-//import { ENDPOINT } from './reusable/urls'
-//const socket = socketIOClient(ENDPOINT)
 import credentials from './reducers/credentials'
 import sounds from './reducers/sounds'
 

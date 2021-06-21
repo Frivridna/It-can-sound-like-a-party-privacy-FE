@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-//import socketIOClient from "socket.io-client"
 import { SocketContext } from '../service/socket'
 
 import { Button } from '../styles/GlobalStyles'
@@ -8,7 +7,6 @@ import Joinroomcss from '../styles/Joinroom.css'
 import StatusMessage from '../components/StatusMessage'
 
 const Joinroom = () => {
-  //const socket = socketIOClient(ENDPOINT)
   const socket = useContext(SocketContext)
   const [existingRoom, setExistingRoom] = useState('')
 
