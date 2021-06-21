@@ -5,7 +5,7 @@ import { SocketContext } from '../service/socket'
 
 import FinishPage from 'components/FinishPage'
 import Startpage from 'pages/Startpage'
-import Sessionpagecss from '../styles/Sessionpage.css'
+import '../styles/Sessionpage.css'
 
 const Sessionpage = () => {
   const { room } = useParams()

@@ -4,7 +4,7 @@ import { useDispatch, batch } from 'react-redux'
 
 import { API_URL } from '../reusable/urls'
 import credentials from '../reducers/credentials'
-import Logincss from '../styles/Login.css'
+import '../styles/Login.css'
 import { Button} from '../styles/GlobalStyles'
 
 const Form = () => {

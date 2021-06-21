@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 import { SocketContext } from '../service/socket'
 
 import { Button } from '../styles/GlobalStyles'
-import Joinroomcss from '../styles/Joinroom.css'
-import StatusMessage from '../components/StatusMessage'
+import '../styles/Joinroom.css'
 
 const Joinroom = () => {
   const socket = useContext(SocketContext)

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { API_URL, DELETE_URL } from '../reusable/urls'
 import credentials from '../reducers/credentials'
 import sounds from '../reducers/sounds'
-import Soundscss from '../styles/Sounds.css'
+import '../styles/Sounds.css'
 import { Button } from '../styles/GlobalStyles'
 
 const Sounds = () => {

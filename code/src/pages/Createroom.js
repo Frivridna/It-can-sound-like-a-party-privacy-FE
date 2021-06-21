@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import uniqid from 'uniqid'
 
-import Createroomcss from '../styles/Createroom.css'
+import '../styles/Createroom.css'
 import { Button, HeaderThree, Container } from '../styles/GlobalStyles'
 
 const Createroom = () => {

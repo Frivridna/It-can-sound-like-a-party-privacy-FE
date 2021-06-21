@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import StartPagecss from '../styles/Startpage.css'
+import '../styles/Startpage.css'
 import StatusMessage from '../components/StatusMessage'
 
 const Startpage = ({ status }) => {

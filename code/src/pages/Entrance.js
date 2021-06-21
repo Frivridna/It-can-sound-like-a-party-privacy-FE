@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Entrancecss from '../styles/Entrance.css'
+import '../styles/Entrance.css'
 import { Button } from '../styles/GlobalStyles'
 
 const Entrance = () => {
