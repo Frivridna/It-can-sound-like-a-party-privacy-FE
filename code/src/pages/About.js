@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../styles/Finalpage.css'
+import '../styles/Finishpage.css'
 import { Button } from '../styles/GlobalStyles'
 import { Link } from 'react-router-dom'
 
