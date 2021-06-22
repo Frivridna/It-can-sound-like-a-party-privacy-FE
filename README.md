@@ -23,3 +23,5 @@ npm i react-router-dom
 npm install @reduxjs/toolkit
 npm install react-redux
 npm i uniqid
+npm install react-share --save   Fethullah Install
+npm i semantic-ui-react   Fethullah Install
