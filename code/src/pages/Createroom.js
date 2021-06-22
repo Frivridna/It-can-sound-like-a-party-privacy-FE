@@ -9,17 +9,21 @@ const Createroom = () => {
  
 
   const [room, setRoom] = useState('')
+  let slicedCode
 
   const onRoomCreate = () => {
     setRoom(uniqid())
-
+    
   }
-  
+  console.log(room)
+
+  slicedCode = room.slice(4)
+  console.log(slicedCode)
   return (
     <Container>
       <section className="big-container"> 
       <HeaderThree>Press to generate room code</HeaderThree>
-      <Button onClick={onRoomCreate}>GENERATE</Button>
+      <Button onClick={onRoomCreate}><p className="button-text">GENERATE</p></Button>
 
       {room && <div className="code-placeholder-text">
           <div className="room-code-box">
@@ -30,7 +34,7 @@ const Createroom = () => {
 
         {room && <div className="code-placeholder">
           <div className="room-code-box">
-          <p className="room-code">{room}</p>
+          <p className="room-code">{slicedCode}</p> {/* {room} innan */}
           </div>
         </div>}
 
@@ -39,15 +43,15 @@ const Createroom = () => {
         <div className="arrow-down-container">
           <img className="arrow"src="../assets/arrow.png" alt="arrow" />
         </div>
-        <Link to={`/session/${room}`} >
-          <Button>ENTER THE WORLD</Button>
+        <Link to={`/session/${slicedCode}`} > {/* {room}  */}
+          <Button> <p className="button-text">ENTER THE WORLD </p></Button>
         </Link>
       </div>
       }
       </section>
       <section className="small-container">
         <Link to={`/entrance`} >
-          <Button>GO BACK</Button>
+          <Button> <p className="button-text">GO BACK</p></Button>
         </Link>
       </section>
     </Container>

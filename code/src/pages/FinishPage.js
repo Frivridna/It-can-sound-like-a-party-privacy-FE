@@ -16,42 +16,49 @@ const FinishPage = () => {
       <div>
         <div>
           <div className="final-page-text"><p>Do the experience again</p></div>
-          <Link to={`/`} >
-            <Button>RESTART</Button>
-          </Link >
+          <div className="buttons">
+            <Link to={`/`} >
+              <Button ><p className="buttons-text">RESTART</p></Button>
+            </Link >
+          </div>
         </div>
         <div>
           <div className="final-page-text"><p>Read more about the composer</p></div>
-          <Link to={`/about`} >
-            <Button>ABOUT</Button>
-          </Link> 
+          <div className="buttons">
+            <Link to={`/about`} >
+              <Button > <p className="buttons-text">ABOUT</p></Button>
+            </Link> 
+          </div>
+          
         </div>
         <div>
           <div className="final-page-text"><p>Share this experience with friends</p></div>
-              <Container>
-                <Segment>
-                  <FacebookShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
-                    quote={"Hey use our app"}
-                  >
-                    <FacebookIcon logoFillColor="white" round={true}> </FacebookIcon>
-                  </FacebookShareButton>
-                  <WhatsappShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
-                    quote={"Hey use our app"}
-                  >
-                    <WhatsappIcon logoFillColor="white" round={true}> </WhatsappIcon>
-                  </WhatsappShareButton>
-                  <LinkedinShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
-                    quote={"Hey use our app"}
-                  >
-                    <LinkedinIcon logoFillColor="white" round={true}></LinkedinIcon>
-                  </LinkedinShareButton>
-                  <TelegramShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
-                    quote={"Hey use our app"}
-                  >
-                    <TelegramIcon logoFillColor="white" round={true}></TelegramIcon>
-                  </TelegramShareButton>
-                </Segment>
-              </Container>
+          <div className="share-icons">
+            <Container>
+              <Segment>
+                <FacebookShareButton  url="https://itcansoundlikeapartyprivacy.netlify.app/"
+                  quote={"Hey use our app"}
+                >
+                  <FacebookIcon  logoFillColor="white" round={true}> </FacebookIcon>
+                </FacebookShareButton>
+                <WhatsappShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
+                  quote={"Hey use our app"}
+                >
+                  <WhatsappIcon logoFillColor="white" round={true}> </WhatsappIcon>
+                </WhatsappShareButton>
+                <LinkedinShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
+                  quote={"Hey use our app"}
+                >
+                  <LinkedinIcon logoFillColor="white" round={true}></LinkedinIcon>
+                </LinkedinShareButton>
+                <TelegramShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
+                  quote={"Hey use our app"}
+                >
+                  <TelegramIcon logoFillColor="white" round={true}></TelegramIcon>
+                </TelegramShareButton>
+              </Segment>
+            </Container>
+          </div>
           </div>
         </div>
     </section>

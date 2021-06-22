@@ -66,9 +66,26 @@
     margin-top: 50px;
 }
 
+.button-text { /* Nyss tillagd  */
+  margin:0px;
+  padding: 0px
+}
+
 @keyframes bounce {
   50% {
       transform: translateY(-15px);
     }
   }
   
+  @media (min-width: 1300px) {
+
+
+    .buttons-text { /* Nyss tillagd  */
+        font-size: 18px;
+    }
+
+    .room-code {
+      font-size: 18px;
+    }
+
+}

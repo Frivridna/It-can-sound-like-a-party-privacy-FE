@@ -22,17 +22,17 @@ const Joinroom = () => {
           className="room-code-input" 
           value={existingRoom} 
           onChange={e => setExistingRoom(e.target.value)} 
-          placeholder="Write your code here"
+          placeholder="Write code here"
         />
         {(existingRoom.length < 1) ? 
-        <Button  disabled><p className="disabled-button">ENTER CODE</p></Button>
+        <Button disabled><p className="disabled-button">ENTER CODE</p></Button>
         :         
           <Link to={`/session/${existingRoom}`} >
-          <Button onClick={onRoomJoin}>JOIN ROOM</Button>
+          <Button onClick={onRoomJoin}><p className="button-text">JOIN ROOM</p></Button>
           </Link>
         }
         <Link to={`/entrance`} >
-        <Button>GO BACK</Button>
+        <Button><p className="button-text">GO BACK</p></Button>
         </Link>
       </div>
     </section>

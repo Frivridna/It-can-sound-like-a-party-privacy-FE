@@ -21,10 +21,60 @@
 .abount-content {
     border: 2px solid white;
     padding: 20px
+    
 }
 
 .about-button {
     display: flex;
     justify-content: center;
     align-items: center; 
+}
+
+.buttons-text { /* Nyss tillagd  */
+    margin: 0px;
+    padding: 0px
+}
+
+.buttons { /* Nyss tillagd  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.share-icons { /* Nyss tillagd  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* .icon {
+    width: 200px;
+} */
+
+@media (min-width: 1300px) {
+
+    .final-page-text p{
+        font-size: 18px;
+    }
+
+    .buttons-text {
+        font-size: 18px;
+    }
+
+    .abount-content {
+        width: 50%;
+        
+    }
+
+    svg {
+        width: 64px;
+        height: 64px;
+    }
+
 }

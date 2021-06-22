@@ -22,7 +22,7 @@ const Entrance = () => {
           <div>
             <div className="buttons">
                 <Link to={`/createroom` } >
-                  <Button>CREATE ROOM</Button>
+                  <Button><p className="buttons-text">CREATE ROOM</p></Button>
                 </Link>
             </div>
             <div className="informational-text">
@@ -37,7 +37,7 @@ const Entrance = () => {
             </div>
             <div className="buttons">
                 <Link to={`/joinroom`}>
-                    <Button> I HAVE A CODE </Button>
+                    <Button> <p className="buttons-text">I HAVE A CODE</p> </Button>
                 </Link>
             </div>
           </div> 

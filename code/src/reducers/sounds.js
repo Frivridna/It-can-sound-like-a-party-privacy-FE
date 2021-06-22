@@ -7,7 +7,7 @@ const sounds = createSlice({ //here we might need to change and add like setName
       name: null,
       url: null,
       description: null,
-      playable: false // LA TILL DENNA
+      playable: null // LA TILL DENNA
     }],
     error: null
   },
