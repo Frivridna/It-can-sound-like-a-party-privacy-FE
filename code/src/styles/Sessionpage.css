@@ -38,3 +38,22 @@
   width: 90px;
   height: 80px;
 }
+
+@media (min-width: 600px) {
+
+}
+
+/* SMALL DESKTOP */
+@media (min-width: 992px) {
+  .listening-instructions-text {
+    font-size: 18px
+  }
+
+  .hero-image {
+    height: 100%;
+  }
+  
+  .hero-image-container {
+    height: 800px;
+  }
+}

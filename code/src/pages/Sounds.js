@@ -14,7 +14,7 @@ const Sounds = () => {
     const [newName, setNewName] = useState('')
     const [newUrl, setNewUrl] = useState('')
     const [newDescription, setNewDescription] = useState('')
-    const [playable, setPlayable] = useState(false)
+    const [playable, setPlayable] = useState(null)
 
     const accessToken = useSelector(store => store.credentials.accessToken)
     const username = useSelector(store => store.credentials.username)
@@ -64,10 +64,15 @@ const Sounds = () => {
             setNewDescription(e.target.value)
         }
        // MAKE THIS A TOGGLE FUNCTION 
-        const onPlayableChange = () => {
+/*         const onPlayableChange = () => {
             setPlayable(!playable) //!playable
             console.log(playable)
-        } 
+        }  */
+
+        const onPlayableChange = (e) => {
+            setPlayable(e.target.value)
+        }
+        
 
     // POST new sound
     const onFormSubmit = (e) => {
@@ -96,6 +101,8 @@ const Sounds = () => {
             setNewUrl('')
             setNewName('')
             setNewDescription('')
+            setPlayable(null) // LA TILL DENNA
+            //window.location.reload() // LA TILL DENNA
     }
 
     // DELETE SOUND
@@ -171,9 +178,19 @@ const Sounds = () => {
                                 </div>
                             </div>
                             <div>
-                                <label className="text-label">Playable?</label>
+                                <label 
+                                    htmlFor={playable} 
+                                    className="text-label"
+                                >
+                                        Playable?
+                                </label>
                                 <div>
-                                    <input type="checkbox" defaultChecked={playable} onChange={onPlayableChange} />
+                                <input 
+                                    id={playable} 
+                                    type="checkbox" 
+                                    // defaultChecked={playable} 
+                                    onChange={onPlayableChange}
+                                />
                                 </div>
                             </div>
                             <Button type="submit">Post a new sound</Button>
