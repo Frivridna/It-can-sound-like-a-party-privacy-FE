@@ -14,6 +14,7 @@ const Sounds = () => {
     const [newName, setNewName] = useState('')
     const [newUrl, setNewUrl] = useState('')
     const [newDescription, setNewDescription] = useState('')
+    const [playable, setPlayable] = useState(false)
 
     const accessToken = useSelector(store => store.credentials.accessToken)
     const username = useSelector(store => store.credentials.username)
@@ -62,6 +63,10 @@ const Sounds = () => {
         const onNewDescriptionChange = (e) => { 
             setNewDescription(e.target.value)
         }
+/*         // MAKE THIS A TOGGLE FUNCTION 
+        const onPlayableChange = () => {
+            setPlayable(true)
+        } */
 
     // POST new sound
     const onFormSubmit = (e) => {
@@ -72,7 +77,7 @@ const Sounds = () => {
             "Content-Type": "application/json",
             Authorization: accessToken
         },
-        body: JSON.stringify({ name: newName, url: newUrl, description: newDescription})
+        body: JSON.stringify({ name: newName, url: newUrl, description: newDescription, playable: false }) // LA TILL DENNA NU
         }
         fetch(API_URL('sounds'), options)
             .then((res) => res.json())
