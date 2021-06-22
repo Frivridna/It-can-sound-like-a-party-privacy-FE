@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from "react-router-dom"
+import { BASE_URL } from '../reusable/urls'
 
 import { SocketContext } from '../service/socket'
 
@@ -22,8 +23,11 @@ const Sessionpage = () => {
 
   useEffect(() => {
     let audio
-    socket.on('join', data => {
+    socket.on('join', data => { //users
       console.log('File received', data)
+      fetch(BASE_URL(`sounds/play/${data}`))
+        .then(res => res.json())
+        .then(file => console.log(file))
       setStatus(data)
       const playAudio = (data) => {
         if (data) {

@@ -14,7 +14,7 @@ const Sounds = () => {
     const [newName, setNewName] = useState('')
     const [newUrl, setNewUrl] = useState('')
     const [newDescription, setNewDescription] = useState('')
-    const [playable, setPlayable] = useState(null)
+    const [newPlayable, setNewPlayable] = useState(false)
 
     const accessToken = useSelector(store => store.credentials.accessToken)
     const username = useSelector(store => store.credentials.username)
@@ -64,14 +64,13 @@ const Sounds = () => {
             setNewDescription(e.target.value)
         }
        // MAKE THIS A TOGGLE FUNCTION 
-/*         const onPlayableChange = () => {
-            setPlayable(!playable) //!playable
-            console.log(playable)
-        }  */
+        const onPlayableChange = () => {
+            setNewPlayable(!newPlayable) //!playable
+        } 
 
-        const onPlayableChange = (e) => {
+/*         const onPlayableChange = (e) => {
             setPlayable(e.target.value)
-        }
+        } */
         
 
     // POST new sound
@@ -83,7 +82,7 @@ const Sounds = () => {
             "Content-Type": "application/json",
             Authorization: accessToken
         },
-        body: JSON.stringify({ name: newName, url: newUrl, description: newDescription, playable: playable }) // LA TILL DENNA NU
+        body: JSON.stringify({ name: newName, url: newUrl, description: newDescription, playable: newPlayable }) // LA TILL DENNA NU
         }
         fetch(API_URL('sounds'), options)
             .then((res) => res.json())
@@ -101,7 +100,7 @@ const Sounds = () => {
             setNewUrl('')
             setNewName('')
             setNewDescription('')
-            setPlayable(null) // LA TILL DENNA
+            setNewPlayable(false) // LA TILL DENNA
             //window.location.reload() // LA TILL DENNA
     }
 
@@ -179,14 +178,14 @@ const Sounds = () => {
                             </div>
                             <div>
                                 <label 
-                                    htmlFor={playable} 
+                                    htmlFor={newPlayable} 
                                     className="text-label"
                                 >
                                         Playable?
                                 </label>
                                 <div>
                                 <input 
-                                    id={playable} 
+                                    id={newPlayable} 
                                     type="checkbox" 
                                     // defaultChecked={playable} 
                                     onChange={onPlayableChange}
