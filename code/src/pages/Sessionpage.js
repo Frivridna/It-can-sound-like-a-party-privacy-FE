@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from "react-router-dom"
-import { BASE_URL } from '../reusable/urls'
+import { TEST_URL } from '../reusable/urls'
 
 import { SocketContext } from '../service/socket'
 
@@ -12,6 +12,7 @@ const Sessionpage = () => {
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
   const [status, setStatus] = useState('')
+  const [ourAudio, setOurAudio] = useState('')
 
   const socket = useContext(SocketContext)
 
@@ -22,24 +23,32 @@ const Sessionpage = () => {
   }, [room, socket])
 
   useEffect(() => {
+
     let audio
     socket.on('join', data => { //users
       console.log('File received', data)
-      fetch(BASE_URL(`sounds/play/${data}`))
+       fetch(TEST_URL(`${data}`))
         .then(res => res.json())
-        .then(file => console.log(file))
+        .then(file => {
+          console.log(file.data.url)
+          setOurAudio(file.data.url)
+        }) 
       setStatus(data)
-      const playAudio = (data) => {
-        if (data) {
-          audio = new Audio(data)
-          setTimeout(() => {audio.play(data)}, 4000) 
+      console.log(ourAudio)
+      const playAudio = (ourAudio) => { //data
+        if (ourAudio) {
+          audio = new Audio(ourAudio)
+          setTimeout(() => {audio.play(ourAudio)}, 4000) 
         }
       }
-      playAudio(data)
-      audio.onended = (data) => {
-        console.log('Sound ended')
-        setAudioEnded(true)
+      if(ourAudio?.length > 0 ) {
+        playAudio(ourAudio)
+        audio.onended = (ourAudio) => {
+          console.log('Sound ended')
+          setAudioEnded(true)
+        }
       }
+      
     })
   }, [socket])
  /*<span role="img" aria-label="white-heart">❤️</span> */
