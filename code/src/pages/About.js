@@ -12,8 +12,8 @@ const About = () => {
       <h1>Name Surname</h1>
       <p>Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor Lorum Ipsum Dolor</p>
       <div className="about-button">
-        <Link to={`/`} >
-          <Button>STARTPAGE</Button>
+        <Link to={`/goodbye`} >
+          <Button>BACK</Button>
         </Link >
       </div>
     </div>

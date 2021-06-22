@@ -29,6 +29,12 @@ const Description = styled.p`
   color: #191919;
 `;
 
+const Playable = styled.p`
+  word-break: break-word;
+  margin: 0 0 10px 0;
+  color: #191919;
+`;
+
 const Titlebar = styled.div`
   display: flex;
   align-items: center;
@@ -45,7 +51,7 @@ const ChildrenContent = styled.div`
   justify-content: center;
 `;
 
-export const Card = ({ title, url, description, className, children }) => {
+export const Card = ({ title, url, description, className, children, playable }) => {
   return (
     <Container className={className}> 
       <Content>
@@ -65,6 +71,15 @@ export const Card = ({ title, url, description, className, children }) => {
             <Description>
               <p className="card-text">Description:</p> {description}
             </Description>
+          }
+          {playable && 
+            <Playable>
+              <p className="card-text">
+                Playable: {(playable) ? "V" : "X"}
+              </p> 
+            
+            
+            </Playable>
           }
           </div>
           </Titlebar>

@@ -63,10 +63,11 @@ const Sounds = () => {
         const onNewDescriptionChange = (e) => { 
             setNewDescription(e.target.value)
         }
-/*         // MAKE THIS A TOGGLE FUNCTION 
+       // MAKE THIS A TOGGLE FUNCTION 
         const onPlayableChange = () => {
-            setPlayable(true)
-        } */
+            setPlayable(!playable) //!playable
+            console.log(playable)
+        } 
 
     // POST new sound
     const onFormSubmit = (e) => {
@@ -77,7 +78,7 @@ const Sounds = () => {
             "Content-Type": "application/json",
             Authorization: accessToken
         },
-        body: JSON.stringify({ name: newName, url: newUrl, description: newDescription, playable: false }) // LA TILL DENNA NU
+        body: JSON.stringify({ name: newName, url: newUrl, description: newDescription, playable: playable }) // LA TILL DENNA NU
         }
         fetch(API_URL('sounds'), options)
             .then((res) => res.json())
@@ -169,6 +170,12 @@ const Sounds = () => {
                                     </textarea>
                                 </div>
                             </div>
+                            <div>
+                                <label className="text-label">Playable?</label>
+                                <div>
+                                    <input type="checkbox" defaultChecked={playable} onChange={onPlayableChange} />
+                                </div>
+                            </div>
                             <Button type="submit">Post a new sound</Button>
                         </form>
                     </div>
@@ -181,6 +188,7 @@ const Sounds = () => {
                                     title={sound.name}
                                     url={sound.url}
                                     description={sound.description}
+                                    playable={sound.playable}
                                 >
                                 <button 
                                     tabIndex='0'
