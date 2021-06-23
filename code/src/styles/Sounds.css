@@ -40,13 +40,17 @@
   margin-bottom: 20px;
 }
 
+.card-content {
+  padding: 20px;
+}
+
 .card-title {
-  margin: 10px;
+  margin: 0 0 10px 0;
   word-break: break-word;
 }
 
 .card-children {
-  margin: 10px;
+  margin: 0 0 10px 0;
   word-break: break-word;
 }
 

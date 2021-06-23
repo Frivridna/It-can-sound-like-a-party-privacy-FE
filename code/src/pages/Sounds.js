@@ -9,7 +9,7 @@ import '../styles/Sounds.css'
 import { Button } from '../styles/GlobalStyles'
 
 
-const Sounds = () => {
+const Sounds = ({ playable }) => {
     const [newName, setNewName] = useState('')
     const [newUrl, setNewUrl] = useState('')
     const [newDescription, setNewDescription] = useState('')
@@ -29,7 +29,6 @@ const Sounds = () => {
         }
     }, [accessToken, history])
 
-      // dispatch(authenticate( null, null, 'sounds'))
     useEffect(()=> {
         const options = {
             method: 'GET',
@@ -199,10 +198,12 @@ const Sounds = () => {
                 return (
                     <div className="file-container" key={sound._id}>
                         <div className="card-container">
-                            <h4 className="card-title">Title: {sound.name}</h4>
-                            <p className="card-children">Url: {sound.url}</p>
-                            <p className="card-children">Description: {sound.description}</p>
-                            <p className="card-children">Playable: {sound.playable}</p>
+                            <div className="card-content">
+                                <h4 className="card-title">Title: {sound.name}</h4>
+                                <p className="card-children">Url: {sound.url}</p>
+                                <p className="card-children">Description: {sound.description}</p>
+                                <p className="card-children">Playable: {(playable) ? "V" : "X"}</p>
+                            </div>
                             <div className="delete-button-container">
                                 <button 
                                     tabIndex='0'
