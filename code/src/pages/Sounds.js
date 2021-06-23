@@ -176,16 +176,15 @@ const Sounds = () => {
                             </div>
                             <div>
                                 <label 
-                                    htmlFor={newPlayable} 
                                     className="text-label"
                                 >
                                         Playable?
                                 </label>
                                 <div>
                                 <input 
-                                    id={newPlayable} 
+                                    value={newPlayable} 
                                     type="checkbox" 
-                                    // defaultChecked={playable} 
+                                    defaultChecked={newPlayable} 
                                     onChange={onPlayableChange}
                                 />
                                 </div>

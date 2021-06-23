@@ -15,6 +15,7 @@ const Sessionpage = () => {
   const [audioEnded, setAudioEnded] = useState(false)
   const [status, setStatus] = useState(null) // amount of users --> not being set inside of useEffect line 41
   // const [ourAudio, setOurAudio] = useState('')
+ 
   let ourAudioNew = ""
 
   useEffect(() => {
@@ -24,7 +25,6 @@ const Sessionpage = () => {
   }, [room, socket])
 
   useEffect(() => {
-    //let audio
     socket.on('join', data => { //users
       console.log('File received', data)
        fetch(TEST_URL(`${data}`))
@@ -43,7 +43,7 @@ const Sessionpage = () => {
         setStatus(data)
         console.log(status)
     })
-  }, [socket]) //socket
+  }, [socket, status]) //socket
 
   const playAudio = (url) => {
     if (url !== '') {
