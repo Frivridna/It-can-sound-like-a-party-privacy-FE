@@ -5,7 +5,7 @@ import { useDispatch, batch } from 'react-redux'
 import { API_URL } from '../reusable/urls'
 import credentials from '../reducers/credentials'
 import '../styles/Login.css'
-import { Button} from '../styles/GlobalStyles'
+import { Button } from '../styles/GlobalStyles'
 
 const Form = () => {
   const [username, setUsername] = useState('')
@@ -77,7 +77,7 @@ const Form = () => {
           <label className="label-text">Password</label>
           <div className="user-input">
             <input 
-            className="room-code-input"
+              className="room-code-input"
               type='password' 
               value={password} 
               onChange={onPasswordChange} 
@@ -92,11 +92,14 @@ const Form = () => {
           <Button
             type='submit'
             onClick={() => setMode('signin')}
-          >Sign in
+          >
+            <p className="button-text">SIGN IN</p>
           </Button>
         </div>
         <Link to={`/entrance`} >
-            <Button>Back</Button>
+            <Button>
+            <p className="button-text">GO BACK</p>
+            </Button>
         </Link>
       </form>
 

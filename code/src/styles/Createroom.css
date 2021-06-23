@@ -77,7 +77,7 @@
     }
   }
   
-  @media (min-width: 1300px) {
+  @media (min-width: 768px) { /* 1300 */
 
 
     .buttons-text { /* Nyss tillagd  */

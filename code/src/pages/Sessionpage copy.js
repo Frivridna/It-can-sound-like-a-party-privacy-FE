@@ -30,32 +30,27 @@ const Sessionpage = () => {
        fetch(TEST_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
-          if(data !== "Room is full"   ){
-            console.log(file)
-           
-            if(file !== undefined && file.data !== undefined && file.data.url !== undefined && file.data.url !== '' && !ourAudio){
-              
-              playAudio(file.data.url)
-              setOurAudio(file.data.url)
-              console.log("playing", ourAudio)
-            }
-          }
+          console.log(file)
+          setOurAudio(file)
         }) 
-        setStatus(data)
+      setStatus(data)
+      console.log(ourAudio)
+      // const playAudio = (ourAudio) => { //data
+      //   if (ourAudio) {
+      //     audio = new Audio(ourAudio)
+      //     setTimeout(() => {audio.play(ourAudio)}, 4000) 
+      //   }
+      // }
+      // if(ourAudio?.length > 0 ) {
+      //   playAudio(ourAudio)
+      //   audio.onended = (ourAudio) => {
+      //   console.log('Sound ended')
+      //   setAudioEnded(true)
+      //   }
+      // }
+      
     })
   }, [socket])
-
-  const playAudio = (url) => { //data
-    if (url !== '') {
-      let audio = new Audio(url)
-      setTimeout(() => {audio.play(ourAudio)}, 4000) 
-
-      audio.onended = () => {
-        console.log('Sound ended')
-        setAudioEnded(true)
-        }
-    }
-  }
  /*<span role="img" aria-label="white-heart">❤️</span> */
   return (
     <>

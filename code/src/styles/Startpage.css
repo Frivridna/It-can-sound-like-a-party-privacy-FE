@@ -116,6 +116,10 @@
   .error-popup-container {
     left: calc(100% - 60%);
   }
+
+  .start-button {
+    font-size: 18px;
+  }
 }
 
 /* SMALL DESKTOP */

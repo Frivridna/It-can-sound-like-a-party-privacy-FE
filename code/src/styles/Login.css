@@ -21,3 +21,21 @@
     margin-bottom: 15px;
     width: 150px
 }
+
+
+@media (min-width: 768px) { /* 1300 */
+
+
+    .buttons-text {
+        font-size: 18px;
+    }
+
+    .room-code-input {
+        font-size: 18px;
+    }
+
+    .label-text {
+        font-size: 18px;
+    }
+    
+}
