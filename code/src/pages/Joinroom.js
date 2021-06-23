@@ -7,27 +7,25 @@ import '../styles/Joinroom.css'
 
 const Joinroom = () => {
   const socket = useContext(SocketContext)
-  const [existingRoom, setExistingRoom] = useState('')
+  const [roomCode, setRoomCode] = useState('')
 
   const onRoomJoin = () => {
-    socket.emit('join', existingRoom) 
+    socket.emit('join', roomCode) 
   }
-
-  console.log(existingRoom.length)
 
   return (
     <section className="join-room-container">
       <div className="user-input">
         <input 
           className="room-code-input" 
-          value={existingRoom} 
-          onChange={e => setExistingRoom(e.target.value)} 
+          value={roomCode} 
+          onChange={e => setRoomCode(e.target.value)} 
           placeholder="Write code here"
         />
-        {(existingRoom.length < 1) ? 
+        {(roomCode.length < 1) ? 
         <Button disabled><p className="disabled-button">ENTER CODE</p></Button>
         :         
-          <Link to={`/session/${existingRoom}`} >
+          <Link to={`/session/${roomCode}`} >
           <Button onClick={onRoomJoin}><p className="button-text">JOIN ROOM</p></Button>
           </Link>
         }

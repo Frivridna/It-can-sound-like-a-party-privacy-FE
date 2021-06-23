@@ -6,19 +6,17 @@ import '../styles/Createroom.css'
 import { Button, HeaderThree, Container } from '../styles/GlobalStyles'
 
 const Createroom = () => {
- 
-
   const [room, setRoom] = useState('')
+
   let slicedCode
 
   const onRoomCreate = () => {
     setRoom(uniqid())
     
   }
-  console.log(room)
 
   slicedCode = room.slice(4)
-  console.log(slicedCode)
+
   return (
     <Container>
       <section className="big-container"> 
@@ -34,7 +32,7 @@ const Createroom = () => {
 
         {room && <div className="code-placeholder">
           <div className="room-code-box">
-          <p className="room-code">{slicedCode}</p> {/* {room} innan */}
+          <p className="room-code">{slicedCode}</p>
           </div>
         </div>}
 
@@ -43,7 +41,7 @@ const Createroom = () => {
         <div className="arrow-down-container">
           <img className="arrow"src="../assets/arrow.png" alt="arrow" />
         </div>
-        <Link to={`/session/${slicedCode}`} > {/* {room}  */}
+        <Link to={`/session/${slicedCode}`} >
           <Button> <p className="button-text">ENTER THE WORLD </p></Button>
         </Link>
       </div>

@@ -25,12 +25,11 @@ const Sessionpage = () => {
 
   useEffect(() => {
     socket.on('join', data => { //users
-      console.log('File received', data)
        fetch(SOUND_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
           if(data !== "Room is full") {
-            console.log(file)
+            console.log('!', file?.data?.url, ourAudioNew)
             if(file?.data?.url !== undefined && file.data.url !== '' && !ourAudioNew ) {
               playAudio(file.data.url)
                 ourAudioNew = file.data.url
