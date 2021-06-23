@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from "react-router-dom"
-import { TEST_URL } from '../reusable/urls'
+import { SOUND_URL } from '../reusable/urls'
 
 import { SocketContext } from '../service/socket'
 
@@ -27,7 +27,7 @@ const Sessionpage = () => {
   useEffect(() => {
     socket.on('join', data => { //users
       console.log('File received', data)
-       fetch(TEST_URL(`${data}`))
+       fetch(SOUND_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
           if(data !== "Room is full") {
