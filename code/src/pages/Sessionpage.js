@@ -13,8 +13,7 @@ const Sessionpage = () => {
 
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
-  const [status, setStatus] = useState(null) // amount of users --> not being set inside of useEffect line 41
-  // const [ourAudio, setOurAudio] = useState('')
+  const [status, setStatus] = useState(null) // amount of users
  
   let ourAudioNew = ""
 
@@ -32,8 +31,7 @@ const Sessionpage = () => {
         .then(file => {
           if(data !== "Room is full") {
             console.log(file)
-            //if(file !== undefined && file.data !== undefined && file.data.url !== undefined && file.data.url !== '' && !ourAudio)
-            if(file?.data?.url !== undefined && file.data.url !== '' && !ourAudioNew ) { // && !ourAudio
+            if(file?.data?.url !== undefined && file.data.url !== '' && !ourAudioNew ) {
               playAudio(file.data.url)
                 ourAudioNew = file.data.url
                 console.log(ourAudioNew, "playing")
@@ -43,7 +41,7 @@ const Sessionpage = () => {
         setStatus(data)
         console.log(status)
     })
-  }, [socket, status]) //socket
+  }, [socket, status])
 
   const playAudio = (url) => {
     if (url !== '') {
