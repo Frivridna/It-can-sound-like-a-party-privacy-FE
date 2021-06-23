@@ -12,7 +12,7 @@ const Sessionpage = () => {
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
   const [status, setStatus] = useState('')
-  const [ourAudio, setOurAudio] = useState('')
+//  const [ourAudio, setOurAudio] = useState('')
 
   const socket = useContext(SocketContext)
 
@@ -23,21 +23,18 @@ const Sessionpage = () => {
   }, [room, socket])
 
   useEffect(() => {
-
-    let audio
+    //let audio
     socket.on('join', data => { //users
       console.log('File received', data)
        fetch(TEST_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
-          if(data !== "Room is full"   ){
+          if(data !== "Room is full") {
             console.log(file)
-           
-            if(file !== undefined && file.data !== undefined && file.data.url !== undefined && file.data.url !== '' && !ourAudio){
-              
-              playAudio(file.data.url)
-              setOurAudio(file.data.url)
-              console.log("playing", ourAudio)
+            //if(file !== undefined && file.data !== undefined && file.data.url !== undefined && file.data.url !== '' && !ourAudio)
+            if(file?.data?.url !== undefined && file.data.url !== '') { // && !ourAudio
+                playAudio(file.data.url)
+            //  setOurAudio(file.data.url)
             }
           }
         }) 
@@ -45,18 +42,20 @@ const Sessionpage = () => {
     })
   }, [socket])
 
-  const playAudio = (url) => { //data
-    if (url !== '') {
-      let audio = new Audio(url)
-      setTimeout(() => {audio.play(ourAudio)}, 4000) 
+  // if (audioEnded === false) {
+    const playAudio = (url) => {
+      if (url !== '') {
+        let audio = new Audio(url)
+        setTimeout(() => {audio.play()}, 4000) 
 
-      audio.onended = () => {
-        console.log('Sound ended')
-        setAudioEnded(true)
+        audio.onended = () => {
+          console.log('Sound ended')
+          setAudioEnded(true)
         }
+      }
     }
-  }
- /*<span role="img" aria-label="white-heart">❤️</span> */
+//}
+
   return (
     <>
         {(status === 'Room is full') ? <Startpage status={status}/> : 
@@ -72,8 +71,7 @@ const Sessionpage = () => {
                 <h5 className="listening-instructions-text">Your headphones should be just loud enough to clearly hear both tones,</h5>
                 <h5 className="listening-instructions-text">If anything starts to hurt you are listening to loudly</h5>
                 <h5 className="listening-instructions-text">Close your eyes, and put your phone to the side, or in a pocket</h5>
-                <h5 className="listening-instructions-text">Please do not shut down your browser, the sound will stop</h5>
-  {/*         <h3>Note to C and F: Add a loading spinner if sleep mode goes on + Franz out-of-synch ljudfil ska då spelas</h3> */}  
+                <h5 className="listening-instructions-text">Please do not shut down your browser, the sound will stop</h5> 
                 <div className="closed-eye-container">
                   <img className="closed-eye-image" src="../assets/closed-eye.png" alt="closed eyes" />
                 </div>
