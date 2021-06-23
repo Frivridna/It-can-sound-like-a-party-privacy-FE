@@ -13,9 +13,9 @@ const Startpage = ({ status }) => {
     <div>
         <section className="startpage">
             <header className="header">
-                <h1 className="header-text">It Can Sound Like a Party, Privacy</h1>
+                <h1 className="header-text">It Can Sound Like a Party, Privacy</h1>  
                 <h5 className="intro-text">An immmersive artwork for two people</h5>
-                    <StatusMessage />
+                <StatusMessage />
             </header>
             <div className="image-container">
                 <img className="startpage-image" src="../assets/blood.jpg" alt="lungs" />
@@ -31,7 +31,7 @@ const Startpage = ({ status }) => {
     <section className="startpage">
         <header className="header">
             <h1 className="header-text">It Can Sound Like a Party, Privacy</h1>
-            <h5 className="intro-text">An immmersive artwork for two people</h5>
+            <h5 className="intro-text">An immersive artwork for two people</h5>
         </header>
         <div className="image-container">
             <img className="startpage-image" src="../assets/blood.jpg" alt="lungs" />
