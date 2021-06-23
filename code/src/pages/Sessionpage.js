@@ -11,14 +11,14 @@ import '../styles/Sessionpage.css'
 const Sessionpage = () => {
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
-  const [status, setStatus] = useState('')
+  const [status, setStatus] = useState('') // amount of users --> not being set inside of useEffect line 41
 //  const [ourAudio, setOurAudio] = useState('')
 
   const socket = useContext(SocketContext)
 
   useEffect(() => {
     if (room) {
-      socket.emit('join', room);
+      socket.emit('join', room)
     }
   }, [room, socket])
 
