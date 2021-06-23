@@ -9,7 +9,7 @@ import '../styles/Sounds.css'
 import { Button } from '../styles/GlobalStyles'
 
 
-const Sounds = ({ playable }) => {
+const Sounds = () => {
     const [newName, setNewName] = useState('')
     const [newUrl, setNewUrl] = useState('')
     const [newDescription, setNewDescription] = useState('')
@@ -95,11 +95,11 @@ const Sounds = ({ playable }) => {
                     dispatch(sounds.actions.setError(data.error))
                 }
             })
-            setNewUrl('')
-            setNewName('')
-            setNewDescription('')
-            setNewPlayable(false)
-            //window.location.reload() // LA TILL DENNA
+            // setNewUrl('')
+            // setNewName('')
+            // setNewDescription('')
+            // setNewPlayable(false)
+            window.location.reload()
     }
 
     // DELETE A SOUND
@@ -202,7 +202,7 @@ const Sounds = ({ playable }) => {
                                 <h4 className="card-title">Title: {sound.name}</h4>
                                 <p className="card-children">Url: {sound.url}</p>
                                 <p className="card-children">Description: {sound.description}</p>
-                                <p className="card-children">Playable: {(playable) ? "V" : "X"}</p>
+                                <p className="card-children">Playable: {(newPlayable) ? "V" : "X"}</p>
                             </div>
                             <div className="delete-button-container">
                                 <button 
