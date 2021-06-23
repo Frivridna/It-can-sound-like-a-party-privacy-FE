@@ -71,7 +71,6 @@
   align-items: center;
 }
 
-/*  */
 .sound-delete-container {
   width: 100%;
   flex-wrap: wrap;
@@ -97,7 +96,6 @@
   .card-container {
     width: 50%; 
   }
-
 }
 
 /* Small Desktop */

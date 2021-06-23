@@ -13,9 +13,9 @@ const Sessionpage = () => {
 
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
-  const [status, setStatus] = useState(null) // amount of users
- 
-  let ourAudioNew = ""
+  const [status, setStatus] = useState(null) // This is amount of users --> will be used in the future
+  
+  let newUrl = ""
 
   useEffect(() => {
     if (room) {
@@ -29,24 +29,22 @@ const Sessionpage = () => {
         .then(res => res.json())
         .then(file => {
           if(data !== "Room is full") {
-            console.log('!', file?.data?.url, ourAudioNew)
-            if(file?.data?.url !== undefined && file.data.url !== '' && !ourAudioNew ) {
+            if(file?.data?.url !== undefined && file.data.url !== '' && !newUrl) {
               playAudio(file.data.url)
-                ourAudioNew = file.data.url
-                console.log(ourAudioNew, "playing")
-            }
-          }
-        }) 
-        setStatus(data)
-        console.log(status)
+                newUrl = file.data.url
+                console.log(newUrl, "playing")
+            } 
+          } 
+        })
+        //setStatus(data) // --> will be used in the future
     })
   }, [socket, status])
+
 
   const playAudio = (url) => {
     if (url !== '') {
       let audio = new Audio(url)
       setTimeout(() => {audio.play()}, 4000) 
-
       audio.onended = () => {
         console.log('Sound ended')
         setAudioEnded(true)
@@ -56,7 +54,7 @@ const Sessionpage = () => {
 
   return (
     <>
-        {(status === 'Room is full') ? <Startpage status={status}/> : 
+        {(status === 'Room is full') ? <Startpage status={status}/> :
         <div>
           {(audioEnded) ? 
             <div>

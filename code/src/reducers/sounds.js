@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const sounds = createSlice({ //here we might need to change and add like setName, setUrl, setDescription etc. if now it does not work.
+const sounds = createSlice({ 
   name: 'sounds',
   initialState: {
     items: [{
       name: null,
       url: null,
       description: null,
-      playable: null // LA TILL DENNA
+      playable: null
     }],
     error: null
   },

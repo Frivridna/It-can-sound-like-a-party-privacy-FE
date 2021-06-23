@@ -61,69 +61,60 @@ const Sounds = () => {
         const onNewDescriptionChange = (e) => { 
             setNewDescription(e.target.value)
         }
-       // MAKE THIS A TOGGLE FUNCTION 
+
         const onPlayableChange = () => {
-            setNewPlayable(!newPlayable) //!playable
-        } 
-
-/*         const onPlayableChange = (e) => {
-            setPlayable(e.target.value)
-        } */
-        
-
-    // POST new sound
-    const onFormSubmit = (e) => {
-        e.preventDefault()
-        const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: accessToken
-        },
-        body: JSON.stringify({ name: newName, url: newUrl, description: newDescription, playable: newPlayable }) // LA TILL DENNA NU
+            setNewPlayable(!newPlayable)
         }
-        fetch(API_URL('sounds'), options)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log('sounds POST', data)
-                 if (data.success) {
-                batch(() => {
-                    dispatch(sounds.actions.setSounds(data.data))
+
+        // POST new sound
+        const onFormSubmit = (e) => {
+            e.preventDefault()
+            const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: accessToken
+            },
+                body: JSON.stringify({ name: newName, url: newUrl, description: newDescription, playable: newPlayable })
+            }
+            fetch(API_URL('sounds'), options)
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.success) {
+                        batch(() => {
+                            dispatch(sounds.actions.setSounds(data.data))
+                            dispatch(sounds.actions.setError(null))
+                        })
+                    } else {
+                        dispatch(sounds.actions.setError(data.error))
+                    }
+                })
+                window.location.reload()
+        }
+
+        // DELETE A SOUND
+        const onDeleteSound = (id) => {
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: accessToken
+                }
+            }
+            fetch(DELETE_URL(id), options)
+                .then(res => res.json())
+                .then(deletedSound => {
+                    const updatedSoundsList = soundsList.filter((item) => item._id !== deletedSound._id)
+                    dispatch(sounds.actions.setSounds(updatedSoundsList))
                     dispatch(sounds.actions.setError(null))
                 })
-                } else {
-                    dispatch(sounds.actions.setError(data.error))
-                }
-            })
-            // setNewUrl('')
-            // setNewName('')
-            // setNewDescription('')
-            // setNewPlayable(false)
-            window.location.reload()
-    }
-
-    // DELETE A SOUND
-    const onDeleteSound = (id) => {
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: accessToken
-            }
         }
-        fetch(DELETE_URL(id), options)
-            .then(res => res.json())
-            .then(deletedSound => {
-                const updatedSoundsList = soundsList.filter((item) => item._id !== deletedSound._id)
-                dispatch(sounds.actions.setSounds(updatedSoundsList))
-                dispatch(sounds.actions.setError(null))
-            })
-    }
 
         const onLogOut = () => {
-            dispatch(credentials.actions.logOut())
-            localStorage.clear()
+                dispatch(credentials.actions.logOut())
+                localStorage.clear()
         }
+
 
         return (
             <>           
@@ -192,7 +183,7 @@ const Sounds = () => {
                             <Button type="submit">Post a new sound</Button>
                         </form>
                     </div>
-                 </section>
+                    </section>
                 {(soundsList.length > 1) && soundsList.map(sound => {
                 return (
                     <div className="file-container" key={sound._id}>
@@ -219,7 +210,6 @@ const Sounds = () => {
                     <Button
                         type='button'
                         onClick={onLogOut}
-                        
                     >
                         Log out
                     </Button>

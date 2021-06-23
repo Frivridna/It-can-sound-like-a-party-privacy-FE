@@ -6,9 +6,7 @@
 }
 
 .label-text {
-    /* display:flex;
-    justify-content: center;
-    align-items: center; */
+    margin: 0px 0px 10px 5px
 }
 
 .input-container {
@@ -22,10 +20,7 @@
     width: 150px
 }
 
-
-@media (min-width: 768px) { /* 1300 */
-
-
+@media (min-width: 768px) { 
     .buttons-text {
         font-size: 18px;
     }

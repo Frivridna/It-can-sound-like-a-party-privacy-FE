@@ -6,39 +6,38 @@
 }
 
 .big-container {
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column;
-    margin-top: 40px; 
-    height: 80vh
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  flex-direction: column;
+  margin-top: 40px; 
+  height: 80vh
   }
 
 .code-placeholder {
-      width:150px;
-      border: 1px solid #f9f7f5;
-      border-radius: 10px;
-      padding: 0px;
+  width:150px;
+  border: 1px solid #f9f7f5;
+  border-radius: 10px;
+  padding: 0px;
 }
 
 .code-placeholder-text {
   width:150px;
-
   border-radius: 10px;
   padding: 0px;
   margin-bottom: 15px;
 }
 
 .small-container {
-    height: 20vh;
+  height: 20vh;
 }
 
 .room-code-box {
-    border-radius: 12px solid #f9f7f5;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
+  border-radius: 12px solid #f9f7f5;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .room-code-box:after {
   border-radius: 12px solid #f9f7f5;
@@ -66,7 +65,7 @@
     margin-top: 50px;
 }
 
-.button-text { /* Nyss tillagd  */
+.button-text { 
   margin:0px;
   padding: 0px
 }
@@ -77,10 +76,8 @@
     }
   }
   
-  @media (min-width: 768px) { /* 1300 */
-
-
-    .buttons-text { /* Nyss tillagd  */
+  @media (min-width: 768px) { 
+    .buttons-text { 
         font-size: 18px;
     }
 

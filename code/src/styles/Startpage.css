@@ -1,5 +1,4 @@
 .startpage {
-  /*width: 100%;*/
   display: flex; 
   justify-content: center;
   align-items: center;
@@ -134,11 +133,11 @@
 /* SMALL DESKTOP */
 @media (min-width: 992px) {
   .header-text {
-    font-size: 48px;
+    font-size: 36px; 
   }
 
   .intro-text {
-    font-size: 24px;
+    font-size: 18px; 
   }
   
   .error-popup-container {

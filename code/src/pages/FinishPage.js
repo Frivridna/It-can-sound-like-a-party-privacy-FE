@@ -39,22 +39,22 @@ const FinishPage = () => {
                 <FacebookShareButton  url="https://itcansoundlikeapartyprivacy.netlify.app/"
                   quote={"Hey use our app"}
                 >
-                  <FacebookIcon className="icon" logoFillColor="white" round={true}> </FacebookIcon>
+                  <FacebookIcon className="icon" logofillcolor="white" round={true}> </FacebookIcon>
                 </FacebookShareButton>
                 <WhatsappShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
                   quote={"Hey use our app"}
                 >
-                  <WhatsappIcon className="icon" logoFillColor="white" round={true}> </WhatsappIcon>
+                  <WhatsappIcon className="icon" logofillcolor="white" round={true}> </WhatsappIcon>
                 </WhatsappShareButton>
                 <LinkedinShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
                   quote={"Hey use our app"}
                 >
-                  <LinkedinIcon className="icon" logoFillColor="white" round={true}></LinkedinIcon>
+                  <LinkedinIcon className="icon" logofillcolor="white" round={true}></LinkedinIcon>
                 </LinkedinShareButton>
                 <TelegramShareButton url="https://itcansoundlikeapartyprivacy.netlify.app/"
                   quote={"Hey use our app"}
                 >
-                  <TelegramIcon className="icon" logoFillColor="white" round={true}></TelegramIcon>
+                  <TelegramIcon className="icon" logofillcolor="white" round={true}></TelegramIcon>
                 </TelegramShareButton>
               </Segment>
             </Container>

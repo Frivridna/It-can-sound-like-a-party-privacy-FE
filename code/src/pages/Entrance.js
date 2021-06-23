@@ -11,19 +11,18 @@ const Entrance = () => {
       <div>
         <div className="admin-login">
           <div className="login">
-              <Link to={`/login`}>
-                  <img className="login-image"src="../assets/key.png" alt="key" />
-              </Link>
-              <p>ADMIN</p>
+            <Link to={`/login`}>
+                <img className="login-image"src="../assets/key.png" alt="key" />
+            </Link>
+            <p>ADMIN</p>
           </div>
         </div>
-        
         <div className="bottom-section">
           <div>
             <div className="buttons">
-                <Link to={`/createroom` } >
-                  <Button><p className="buttons-text">CREATE ROOM</p></Button>
-                </Link>
+              <Link to={`/createroom` } >
+                <Button><p className="buttons-text">CREATE ROOM</p></Button>
+              </Link>
             </div>
             <div className="informational-text">
               <p>For the best experience:</p>
@@ -36,9 +35,9 @@ const Entrance = () => {
               </div>
             </div>
             <div className="buttons">
-                <Link to={`/joinroom`}>
-                    <Button> <p className="buttons-text">I HAVE A CODE</p> </Button>
-                </Link>
+              <Link to={`/joinroom`}>
+                  <Button> <p className="buttons-text">I HAVE A CODE</p> </Button>
+              </Link>
             </div>
           </div> 
         </div>

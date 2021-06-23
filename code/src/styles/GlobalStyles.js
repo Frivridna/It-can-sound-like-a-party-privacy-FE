@@ -21,8 +21,6 @@ export const HeaderThree = styled.header`
 export const Container = styled.section`
   width: 100vw; 
   height: 100vh; 
-
-
   display: flex; 
   justify-content: center;
   align-items: center; 

@@ -1,12 +1,10 @@
 .entrance-container {
     height: 100vh;
     width: 100%;
-  
 }
 .admin-login {
     height: 10vh;
     margin: 20px 0px 0px 20px;
-
 }
 
 .login{
@@ -57,17 +55,13 @@
     height: 50px;
 }
 
-.buttons-text { /* Nyss tillagd  */
+.buttons-text { 
     margin: 0px;
     padding: 0px
 }
 
-
-
-
 /*  Big Desktop   */
-@media (min-width: 768px) { /* 1300 */
-
+@media (min-width: 768px) { 
     .informational-text p{
         font-size: 18px;
     }
