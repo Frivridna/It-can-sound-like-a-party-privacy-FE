@@ -3,12 +3,9 @@
   justify-content: center;
 }
 
-
-
 .name-input-section{
   margin-bottom: 20px;
 }
-
 
 .description {
   width: calc(100% - 10%);
@@ -27,23 +24,41 @@
   width: 140px;
 }
 
-.our-sounds {
+.file-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: #191919;
 }
 
-/* .input-field {
-  display: flex;
-  justify-content: center;
-} */
+.card-container {
+  width: 90%;
+  border-radius: 6px;
+  background: #f9f7f5;
+  margin-bottom: 20px;
+}
 
-.sound-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.card-title {
+  margin: 10px;
+  word-break: break-word;
+}
 
+.card-children {
+  margin: 10px;
+  word-break: break-word;
+}
+
+.delete-button-container {
+  margin: 0 auto;
+  color: #f9f7f5;
+  border: 2px solid #f9f7f5;
+  border-radius: 10px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  width: 150px;
+  padding: 10px 0px;
 }
 
 .logout-button {
@@ -58,7 +73,7 @@
   flex-wrap: wrap;
 }
 
-.sound-delete-container p{
+.sound-delete-container p {
   flex-wrap: wrap;
 }
 
@@ -73,27 +88,17 @@
   padding: 10px 0px
 }
 
-.card-text {
-  margin: 0px;
-  padding: 10px 0px;
+/* Tablet */
+@media (min-width: 600px) {
+  .card-container {
+    width: 50%; 
+  }
+
 }
 
-
-
-
-
-
-/* Tablet starts here  */
-
-
-
-/* Tablet ends here  */
-
-
-
-
-/* Small Desktop starts here  */
-
-
-
-/* Small Desktop ends here  */
+/* Small Desktop */
+@media (min-width: 992px) {
+  .card-container {
+    width: 35%;
+  }
+}
