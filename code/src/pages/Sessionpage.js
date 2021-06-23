@@ -1,3 +1,5 @@
+//URL received but ourAudio is undefined: 
+
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from "react-router-dom"
 import { TEST_URL } from '../reusable/urls'
@@ -22,9 +24,26 @@ const Sessionpage = () => {
     }
   }, [room, socket])
 
-  useEffect(() => {
-
+  const newSomething = () => {
     let audio
+    const playAudio = (url) => { //data
+      if (url) {
+        audio = new Audio(url)
+//        setTimeout(() => {audio.play(url)}, 4000)
+        audio.play(url)
+        audio.onended = () => {
+          console.log('Sound ended')
+          setAudioEnded(true)
+        }
+      }
+    }
+
+    setTimeout(() => { 
+      console.log('Should play audio: ' + ourAudio)
+      playAudio(ourAudio)}, 4000)
+  }
+
+  useEffect(() => {
     socket.on('join', data => { //users
       console.log('File received', data)
        fetch(TEST_URL(`${data}`))
@@ -32,26 +51,12 @@ const Sessionpage = () => {
         .then(file => {
           console.log(file.data.url)
           setOurAudio(file.data.url)
+          newSomething()
         }) 
       setStatus(data)
-      console.log(ourAudio)
-      const playAudio = (ourAudio) => { //data
-        if (ourAudio) {
-          audio = new Audio(ourAudio)
-          setTimeout(() => {audio.play(ourAudio)}, 4000) 
-        }
-      }
-      if(ourAudio?.length > 0 ) {
-        playAudio(ourAudio)
-        audio.onended = (ourAudio) => {
-          console.log('Sound ended')
-          setAudioEnded(true)
-        }
-      }
-      
     })
   }, [socket])
- /*<span role="img" aria-label="white-heart">❤️</span> */
+
   return (
     <>
         {(status === 'Room is full') ? <Startpage status={status}/> : 
