@@ -9,7 +9,7 @@
 
 .hero-image {
   width: 100%;
-  height: 568px;
+  height: 820px;
   filter: brightness(30%);
 }
 
@@ -54,6 +54,6 @@
   }
   
   .hero-image-container {
-    height: 800px;
+    height: 850px;
   }
 }
