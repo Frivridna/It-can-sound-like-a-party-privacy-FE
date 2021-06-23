@@ -11,9 +11,9 @@ import '../styles/Sessionpage.css'
 const Sessionpage = () => {
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
-  const [status, setStatus] = useState('') // amount of users --> not being set inside of useEffect line 41
-//  const [ourAudio, setOurAudio] = useState('')
-
+  const [status, setStatus] = useState(null) // amount of users --> not being set inside of useEffect line 41
+  const [ourAudio, setOurAudio] = useState('')
+  let ourAudioNew = ""
   const socket = useContext(SocketContext)
 
   useEffect(() => {
@@ -32,15 +32,17 @@ const Sessionpage = () => {
           if(data !== "Room is full") {
             console.log(file)
             //if(file !== undefined && file.data !== undefined && file.data.url !== undefined && file.data.url !== '' && !ourAudio)
-            if(file?.data?.url !== undefined && file.data.url !== '') { // && !ourAudio
-                playAudio(file.data.url)
-            //  setOurAudio(file.data.url)
+            if(file?.data?.url !== undefined && file.data.url !== '' && !ourAudioNew ) { // && !ourAudio
+            
+              playAudio(file.data.url)
+                ourAudioNew = file.data.url
+                console.log(ourAudioNew, "playing")
             }
           }
         }) 
         setStatus(data)
     })
-  }, [socket])
+  }, [socket]) //socket
 
   // if (audioEnded === false) {
     const playAudio = (url) => {
