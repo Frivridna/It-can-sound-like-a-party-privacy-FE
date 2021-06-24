@@ -85,7 +85,7 @@
 }
 
 .button-section {
-  height: 33vh;
+  height: 21vh; 
   display:flex;
   justify-content: center;
   align-items: center;
@@ -109,6 +109,11 @@
   color: #c74c4f; 
   font-size: 14px;
   font-weight: 500;
+}
+
+.footer-text {
+  font-size: 13px;
+  margin: 0 10px 10px 10px;
 }
 
 /*TABLET*/
