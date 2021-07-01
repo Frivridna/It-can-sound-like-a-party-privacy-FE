@@ -11,7 +11,7 @@ The users will receive different audiofiles and voice instructions.
 We planned that the frontend should be build upon two different panels, one for the user and one for the admin. The admin will have access to adding and deleting sound files stored in the database. 
 We specified the pages, endpoints and styling and split the tasks up into week 1, week 2, week 3, week 4.
 
-If you had more time, what would be next?
+If we had more time, what would be next?
 > If we had more time we would experiment with a completely different user flow. For example a bigger room with 8 people to start off the session and only after that divide the users into pairs (A, B) (C, D) (E, F), and into smaller rooms. The soundstream would only start when all the users has been divided.
 > A chat function where people who are in the same room could chat with each other before the session starts, and after when the session has ended. 
 > On the last page we would add a feedback-button to a page where the users can post feedback to us about the platform, as well as about the experience itself :)
