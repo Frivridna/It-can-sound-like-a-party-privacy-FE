@@ -10,7 +10,7 @@ const Joinroom = () => {
   const [roomCode, setRoomCode] = useState('')
 
   const onRoomJoin = () => {
-    socket.emit('join', roomCode) 
+     socket.emit('join', roomCode) 
   }
 
   return (
@@ -26,7 +26,7 @@ const Joinroom = () => {
         <Button disabled><p className="disabled-button">ENTER CODE</p></Button>
         :         
           <Link to={`/session/${roomCode}`} >
-          <Button onClick={onRoomJoin}><p className="button-text">JOIN ROOM</p></Button>
+          <Button onClick={onRoomJoin}><p className="button-text">JOIN ROOM</p></Button> 
           </Link>
         }
         <Link to={`/entrance`} >

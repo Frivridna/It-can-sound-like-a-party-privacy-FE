@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useParams } from "react-router-dom"
-import { SOUND_URL } from '../reusable/urls'
+import { useParams, useHistory } from "react-router-dom"
+import { SOUND_URL } from '../reusable/urls' 
 
 import { SocketContext } from '../service/socket'
 
@@ -13,9 +13,13 @@ const Sessionpage = () => {
 
   const { room } = useParams()
   const [audioEnded, setAudioEnded] = useState(false)
-  const [status, setStatus] = useState(null) // This is amount of users --> will be used in the future
+  const [status, setStatus] = useState('') // This is amount of users --> will be used in the future
   
   let newUrl = ""
+
+  let history = useHistory()
+
+  let roomStatus
 
   useEffect(() => {
     if (room) {
@@ -23,18 +27,25 @@ const Sessionpage = () => {
     }
   }, [room, socket])
 
+
   useEffect(() => {
     socket.on('join', data => { //users
+
        fetch(SOUND_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
+          console.log(data)
           if(data !== "Room is full") {
             if(file?.data?.url !== undefined && file.data.url !== '' && !newUrl) {
               playAudio(file.data.url)
                 newUrl = file.data.url
                 console.log(newUrl, "playing")
             } 
-          } 
+          } else {
+            //setStatus('Room is full') // --> will be used in the future
+            roomStatus = data
+            history.push('/')
+          }
         })
         //setStatus(data) // --> will be used in the future
     })
@@ -54,7 +65,7 @@ const Sessionpage = () => {
 
   return (
     <>
-        {(status === 'Room is full') ? <Startpage status={status}/> :
+        {(roomStatus === 'Room is full') ? <Startpage status={status}/> :
         <div>
           {(audioEnded) ? 
             <div>
