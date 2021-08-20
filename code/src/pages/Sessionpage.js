@@ -76,8 +76,8 @@ const Sessionpage = () => {
               <section className="listening-instructions-container">
               <img className="closed-eye-image" src="../assets/closed-eye.png" alt="closed eyes" />
                 <h5 className="listening-instructions-text">Your headphones should be just loud enough to clearly hear both tones,</h5>
-                <h5 className="listening-instructions-text">If anything starts to hurt you are listening to loudly</h5>
-                <h5 className="listening-instructions-text">Close your eyes, and put your phone to the side, or in a pocket</h5>
+                <h5 className="listening-instructions-text">If anything starts to hurt you are listening too loudly</h5>
+                <h5 className="listening-instructions-text">Put your phone to the side, or in a pocket</h5>
                 <h5 className="listening-instructions-text">Please do not shut down your browser, the sound will stop</h5> 
                 <div className="closed-eye-container">
                   <img className="closed-eye-image" src="../assets/closed-eye.png" alt="closed eyes" />

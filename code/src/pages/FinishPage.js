@@ -23,7 +23,7 @@ const FinishPage = () => {
           </div>
         </div>
         <div>
-          <div className="final-page-text"><p>Read more about the composer</p></div>
+          <div className="final-page-text"><p>Read more about the work</p></div>
           <div className="buttons">
             <Link to={`/about`} >
               <Button > <p className="buttons-text">ABOUT</p></Button>
