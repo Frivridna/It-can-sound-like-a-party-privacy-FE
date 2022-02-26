@@ -30,14 +30,17 @@ const Sessionpage = () => {
 
 
   useEffect(() => {
+
     socket.on('join', data => { //users
        fetch(SOUND_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
+          console.log(data)
           if(data !== "Room is full") {
             if(file?.data?.url !== undefined && file.data.url !== '' && !newUrl) {
               playAudio(file.data.url)
-              newUrl = file.data.url
+                newUrl = file.data.url
+                console.log(newUrl, "playing")
             } 
           } else {
             //setStatus('Room is full') // --> will be used in the future
@@ -48,6 +51,7 @@ const Sessionpage = () => {
         //setStatus(data) // --> will be used in the future
     })
   }, [socket, status])
+
 
   const playAudio = (url) => {
     if (url !== '') {
@@ -89,7 +93,6 @@ const Sessionpage = () => {
                 <div className="closed-eye-container">
                   <img className="closed-eye-image" src="../assets/closed-eye.png" alt="closed eyes" />
                 </div>
-                <div id="debug"></div>
             </section>
             </div>
             }
