@@ -30,8 +30,8 @@ const Sessionpage = () => {
 
 
   useEffect(() => {
-
     socket.on('join', data => { //users
+      
        fetch(SOUND_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
