@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AudioManager } from 'service/AudioManager'
 import uniqid from 'uniqid'
 
 import '../styles/Createroom.css'
@@ -11,8 +12,9 @@ const Createroom = () => {
   let slicedCode
 
   const onRoomCreate = () => {
-    setRoom(uniqid())
-    
+    if (AudioManager.getAudio()) {
+      setRoom(uniqid())
+    }
   }
 
   slicedCode = room.slice(4)

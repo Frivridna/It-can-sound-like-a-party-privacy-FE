@@ -7,6 +7,7 @@ import { SocketContext } from '../service/socket'
 import FinishPage from 'pages/FinishPage'
 import Startpage from 'pages/Startpage'
 import '../styles/Sessionpage.css'
+import { AudioManager } from 'service/AudioManager'
 
 const Sessionpage = () => {
   const socket = useContext(SocketContext)
@@ -30,16 +31,13 @@ const Sessionpage = () => {
 
   useEffect(() => {
     socket.on('join', data => { //users
-
        fetch(SOUND_URL(`${data}`))
         .then(res => res.json())
         .then(file => {
-          console.log(data)
           if(data !== "Room is full") {
             if(file?.data?.url !== undefined && file.data.url !== '' && !newUrl) {
               playAudio(file.data.url)
-                newUrl = file.data.url
-                console.log(newUrl, "playing")
+              newUrl = file.data.url
             } 
           } else {
             //setStatus('Room is full') // --> will be used in the future
@@ -51,14 +49,23 @@ const Sessionpage = () => {
     })
   }, [socket, status])
 
-
   const playAudio = (url) => {
     if (url !== '') {
-      let audio = new Audio(url)
-      setTimeout(() => {audio.play()}, 4000) 
-      audio.onended = () => {
-        console.log('Sound ended')
-        setAudioEnded(true)
+      const audio = AudioManager.getAudio();
+      if (audio) {
+        audio.src = url;
+        setTimeout(() => {
+          var play_promise = audio.play();
+          play_promise.then(function () {
+              console.log('playing');
+          }).catch(function (reason) {
+              window.location.assign(`/rejoinroom/?room=${room}`);
+          });
+        }, 4000);
+        audio.onended = () => {
+          console.log('Sound ended')
+          setAudioEnded(true)
+        }
       }
     }
   }
@@ -82,6 +89,7 @@ const Sessionpage = () => {
                 <div className="closed-eye-container">
                   <img className="closed-eye-image" src="../assets/closed-eye.png" alt="closed eyes" />
                 </div>
+                <div id="debug"></div>
             </section>
             </div>
             }

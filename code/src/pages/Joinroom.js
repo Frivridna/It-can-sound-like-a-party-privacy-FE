@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AudioManager } from 'service/AudioManager'
 import { SocketContext } from '../service/socket'
 
 import { Button } from '../styles/GlobalStyles'
@@ -10,7 +11,9 @@ const Joinroom = () => {
   const [roomCode, setRoomCode] = useState('')
 
   const onRoomJoin = () => {
-     socket.emit('join', roomCode) 
+    if (AudioManager.getAudio()) {
+      socket.emit('join', roomCode) 
+    }
   }
 
   return (

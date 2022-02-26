@@ -8,6 +8,7 @@ import Createroom from './pages/Createroom'
 import Sessionpage from './pages/Sessionpage'
 import Entrance from './pages/Entrance'
 import Joinroom from './pages/Joinroom'
+import Rejoinroom from './pages/Rejoinroom'
 import Login from './pages/Login'
 import Sounds from './pages/Sounds'
 import Start from './pages/Startpage'
@@ -34,6 +35,7 @@ export const App = () => {
             <Route path="/entrance" exact component={Entrance} />
             <Route path="/createroom" exact component={Createroom} />
             <Route path="/joinroom" exact component={Joinroom} />
+            <Route path="/rejoinroom" exact component={Rejoinroom} />
             <Route path="/session/:room" exact component={Sessionpage} /> 
             <Route path="/login" exact component={Login} /> 
             <Route path="/sounds" exact component={Sounds} /> 
