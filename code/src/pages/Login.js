@@ -20,7 +20,7 @@ const Login = () => {
           <Form />
             {error !== null && (error.message === 'User not found') && 
               <div>
-                <p className="button-text">The username/password combination was not found. </p> 
+                <p className="button-text">Ttttthhe username/password combination was not found. </p> 
                 <p className="button-text">Please try again, or sign up if you don't have an account</p>
               </div>
             }
